@@ -2,77 +2,6 @@
 
 <img src="images/NotebookFactory.png">
 
-from IPython.display import HTML
-
-HTML('''<script>
-code_show=true; 
-function code_toggle() {
- if (code_show){
- $('div.input').hide();
- } else {
- $('div.input').show();
- }
- code_show = !code_show
-} 
-$( document ).ready(code_toggle);
-</script>
-<form action="javascript:code_toggle()"><input type="submit" value="Click here to toggle on/off the raw code."></form>''')
-
-## Table of Contents <a name="top"></a>
-
-1. [Introduction](#introduction)
-
-2. [Abstract](#abstract)
-
-3. [Imports](#imports)
-
-4. [Figures](#figures)
-
-    1. [Figure 1](#figure-1)
-    
-        1. [Reference Tissue](#reference-tissue)
-        
-        2. [Tissue of Interest](#tissue-of-interest)
-        
-        3. [Input Function](#input-function)
-        
-        4. [RRIFT Fit](#rrift-fit)
-        
-    2. [Figure 2](#figure-2)
-        
-        1. [$K_{trans}$](#fig-2-1)
-        
-        2. [$V_{e}$](#fig-2-2)
-        
-        3. [$V_{p}$](#fig-2-3)
-        
-    3. [Figure 3](#figure-3)
-    
-        1. [$\widehat{k_{ep,RR}}$](#fig-3-1)
-        
-        2. [$K^{trans}_{RR}$](#fig-3-2)
-    
-        3. [$K_{e, RR}$](#fig-3-3)
-    4. [Figure 4](#figure-4)
-        1. [$K^{trans}$](#fig-4-1)
-        2. [$V_e$](#fig-4-2)
-        3. [$V_p$](#fig-4-3)
-    5. [Figure 5](#figure-5)
-    6. [Figure 6](#figure-6)
-        1. [$K_{trans}$](#fig6-1)
-        2. [$V_{e}$](#fig6-2)
-        3. [$V_{p}$](#fig6-3)
-    7. [Figure 7](#figure-7)
-    8. [Figure 8](#figure-8)
-        1. [Individual plots](#fig-8-1)
-    9. [Figure 9](#figure-9)
-        1. [$K^{trans}$](#fig-9-1)
-        2. [$V_e$](#fig-9-2)
-        3. [$V_p$](#fig-9-3)
-    10. [Figure 10](#figure-10)
-    
-         
-
 # Introduction <a name="introduction"></a> <a class="btn" href="#top">Back to top</a>
 
 This is a Jupyter notebook that introduces interactive plots created in plotly from some of figures in the paper [Pharmacokinetic modeling of dynamic contrast‐enhanced MRI using a reference region and input function tail](https://onlinelibrary.wiley.com/doi/abs/10.1002/mrm.27913). 
@@ -84,19 +13,17 @@ GitHub link to this notebook: https://github.com/Notebook-Factory/RRIFT_notebook
 
 # Abstract <a name="abstract"></a> <a class="btn" href="#top">Back to top</a>
 
-###  Purpose
+##  Purpose
 Quantitative analysis of dynamic contrast‐enhanced MRI (DCE‐MRI) requires an arterial input function (AIF) which is difficult to measure. We propose the reference region and input function tail (RRIFT) approach which uses a reference tissue and the washout portion of the AIF.
 
-### Methods
+## Methods
 RRIFT was evaluated in simulations with 100 parameter combinations at various temporal resolutions (5‐30 s) and noise levels (σ = 0.01‐0.05 mM). RRIFT was compared against the extended Tofts model (ETM) in 8 studies from patients with glioblastoma multiforme. Two versions of RRIFT were evaluated: one using measured patient‐specific AIF tails, and another assuming a literature‐based AIF tail.
 
-### Results
+## Results
 RRIFT estimated the transfer constant $K^{trans}$ and interstitial volume $V_{e}$ with median errors within 20% across all simulations. RRIFT was more accurate and precise than the ETM at temporal resolutions slower than 10 s. The percentage error of $K^{trans}$ had a median and interquartile range of −9 ± 45% with the ETM and −2 ± 17% with RRIFT at a temporal resolution of 30 s under noiseless conditions. RRIFT was in excellent agreement with the ETM in vivo, with concordance correlation coefficients (CCC) of 0.95 for $K^{trans}$, 0.96 for $V_{e}$, and 0.73 for the plasma volume $V_{p}$ using a measured AIF tail. With the literature‐based AIF tail, the CCC was 0.89 for $K^{trans}$, 0.93 for $V_{e}$ and 0.78 for $V_{p}$.
 
-### Conclusions 
+## Conclusions 
 Quantitative DCE‐MRI analysis using the input function tail and a reference tissue yields absolute kinetic parameters with the RRIFT method. This approach was viable in simulation and in vivo for temporal resolutions as low as 30 s.
-
-## Imports <a name="imports"></a> <a class="btn" href="#top">Back to top</a>
 
 import plotly.express as px
 import plotly.graph_objects as go
@@ -112,13 +39,17 @@ import itertools
 from pandas.core.common import flatten
 from plotly.subplots import make_subplots
 import plotly.figure_factory as ff
+from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot
+from IPython.core.display import display, HTML
+init_notebook_mode(connected=True)
+config={'showLink': False, 'displayModeBar': False}
 
-# Figures <a name="figures"></a> 
+
 
 ## Figure 1 <a name="figure-1"></a>
 
 
-* (A) Reference Tissue <a name="reference-tissue"></a> <a class="btn" href="#top">Back to top</a>
+* (A) Reference Tissue <a name="reference-tissue"></a>
 
 file = loadmat('fig1vars.mat')
 
@@ -152,16 +83,20 @@ sub1.update_layout(title='(A) Reference Tissue',
                    
                  )
 
-sub1.add_annotation(text=r'$K_{RR}^{trans}\space0.007\min{}^{-1}\\K_{ep, RR}\space0.50 \min{}^{-1}$',
-                  xref="paper", yref="paper",
-                  x=0.8, y=0.1, showarrow=False, font = dict(size = 26))
+sub1.add_annotation(text='K<sub>RR</sub><sup>trans</sup> 0.007 [min<sup>-1</sup>] K<sub>ep, RR</sub> 0.50 [min<sup>-1</sup>]',
+                  xref="x", yref="y",
+                  x=5, y=0.02, showarrow=False, font = dict(size = 26))
 
 sub1.update_xaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 sub1.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
                
-sub1.show()
+# sub1.show()
 
-* (B) Tissue of Interest <a name="tissue-of-interest"></a> <a class="btn" href="#top">Back to top</a>
+plot(sub1, filename = 'figures/fig1-1.html', config = config)
+
+display(HTML('figures/fig1-1.html'))
+
+* (B) Tissue of Interest <a name="tissue-of-interest"></a>
 
 file = loadmat('fig1vars.mat')
 
@@ -209,15 +144,19 @@ fig.update_layout(title='(B) Tissue of Interest',
                    plot_bgcolor="#fff",
 )
 
-fig.add_annotation(text=r'$Estimate \space k_{ep, RR} \space (min^{-1})$',
-                  xref="paper", yref="paper",
-                  x=0.8, y=0.8, showarrow=False, font = dict(size = 26))
+fig.add_annotation(text='Estimate k<sub>ep, RR</sub> (min<sup>-1</sup>)',
+                  xref="x", yref="y",
+                  x=6, y=1.19, showarrow=False, font = dict(size = 21))
 
 fig.update_xaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 
 
-fig.show()
+# fig.show()
+
+plot(fig, filename = 'figures/fig1-2.html', config = config)
+
+display(HTML('figures/fig1-2.html'))
 
 * (C) Input Function <a name="input-function"></a> <a class="btn" href="#top">Back to top</a>
 
