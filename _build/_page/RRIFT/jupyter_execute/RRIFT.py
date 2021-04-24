@@ -2,7 +2,7 @@
 
 <img src="images/NotebookFactory.png">
 
-# Introduction <a name="introduction"></a> <a class="btn" href="#top">Back to top</a>
+# Introduction <a name="introduction"></a> 
 
 This is a Jupyter notebook that introduces interactive plots created in plotly from some of figures in the paper [Pharmacokinetic modeling of dynamic contrast‐enhanced MRI using a reference region and input function tail](https://onlinelibrary.wiley.com/doi/abs/10.1002/mrm.27913). 
 
@@ -11,7 +11,7 @@ Link to the paper's GitHub repository: https://github.com/MPUmri/RRIFT
 GitHub link to this notebook: https://github.com/Notebook-Factory/RRIFT_notebooks
 
 
-# Abstract <a name="abstract"></a> <a class="btn" href="#top">Back to top</a>
+# Abstract <a name="abstract"></a> 
 
 ##  Purpose
 Quantitative analysis of dynamic contrast‐enhanced MRI (DCE‐MRI) requires an arterial input function (AIF) which is difficult to measure. We propose the reference region and input function tail (RRIFT) approach which uses a reference tissue and the washout portion of the AIF.
@@ -158,7 +158,7 @@ plot(fig, filename = 'figures/fig1-2.html', config = config)
 
 display(HTML('figures/fig1-2.html'))
 
-* (C) Input Function <a name="input-function"></a> <a class="btn" href="#top">Back to top</a>
+* (C) Input Function <a name="input-function"></a>
 
 file = loadmat('fig1vars.mat')
 
@@ -234,7 +234,7 @@ fig.add_annotation(
 fig.add_annotation(  
     x=6.5,
     y=4.6,
-    text=r'$T_{tail}$',
+    text='T<sub>tail</sub>',
     xanchor="center", yanchor="top", 
     showarrow=False, font=dict(size=20, color='black'))
 
@@ -250,7 +250,7 @@ fig.add_annotation(
     yref='y',
     axref='x',
     ayref='y',
-    text=r'$T_{start}$',
+    text='T<sub>start</sub>',
     font=dict(size=16, color='black'),
     showarrow=True,
     arrowhead=3,
@@ -270,7 +270,7 @@ fig.add_annotation(
     yref='y',
     axref='x',
     ayref='y',
-    text=r'$T_{end}$',
+    text='T<sub>end</sub>',
     font=dict(size=16, color='black'),
     showarrow=True,
     arrowhead=3,
@@ -281,9 +281,14 @@ fig.add_annotation(
 
 fig.update_xaxes(ticks="outside", showline=True, linewidth=2, linecolor='black', tick0=0, dtick=1)
 fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
-fig.show()
+# fig.show()
 
-* (D) RRIFT Fit <a name="rrift-fit"></a> <a class="btn" href="#top">Back to top</a>
+plot(fig, filename = 'figures/fig1-3.html', config = config)
+
+display(HTML('figures/fig1-3.html'))
+
+
+* (D) RRIFT Fit <a name="rrift-fit"></a> 
 
 file = loadmat('fig1vars.mat')
 
@@ -306,9 +311,9 @@ fig.add_trace(go.Scatter(name="Linear Fit",
                          mode='lines',
                          line_color="black"))
 
-fig.add_annotation(text=r'$Slope | K_{RR}^{trans}: 0.071\space min^{-1}\\R^{2}:0.9996$',
-                  xref="paper", yref="paper",
-                  x=0.9, y=0.1, showarrow=False, font = dict(size = 26))
+fig.add_annotation(text='Slope | K<sub>RR</sub><sup>trans</sup>: 0.071 min<sup>-1</sup><br>R<sub>2</sub>: 0.9996',
+                  xref="x", yref="y",
+                  x=4.7, y=0.1, showarrow=False, font = dict(size = 22))
 
 fig.update_layout(title='(D) RRIFT Fit',
                    xaxis_title='Denominator [mM * min]',
@@ -325,9 +330,13 @@ fig.update_layout(title='(D) RRIFT Fit',
 fig.update_xaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 
-fig.show()
+# fig.show()
 
-## Figure 2 <a name="figure-2"></a> <a class="btn" href="#top">Back to top</a>
+plot(fig, filename = 'figures/fig1-4.html', config = config)
+
+display(HTML('figures/fig1-4.html'))
+
+## Figure 2 <a name="figure-2"></a> 
 
 file = loadmat('fig2andfig3vars.mat')
 
@@ -346,7 +355,7 @@ errQt5 = file['errQt5']
 errMd5 = file['errMd5']
 
 fig = make_subplots(rows=1, cols=3, 
-                    subplot_titles=(r'$K^{trans}$', r'$V_{e}$', r'$V_{p}$'))
+                    subplot_titles=('K<sup>trans</sup>', 'V<sup>e</sup>', 'V<sup>p</sup>'))
 
 legend_values=cycle(['5','10','15','30'])
 
@@ -434,12 +443,12 @@ for i in range(0,4):
 
 
 
-fig.update_xaxes(title_text=r'$\sigma_{noise}[Mm]$')
+fig.update_xaxes(title_text='σ<sub>noise</sub>[Mm]')
 fig.update_yaxes(range=[-50,50], tickvals=[-50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50], row=1, col=1)
 fig.update_yaxes(range=[-50,50], tickvals=[-50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50], row=1, col=2)
 fig.update_yaxes(range=[-50,50], tickvals=[-50, -40, -30, -20, -10, 0, 10, 20, 30, 40, 50], row=1, col=3)
 
-fig.update_layout(yaxis=dict(title=r'$\text{Percent Error}$',
+fig.update_layout(yaxis=dict(title='Percent Error',
                              showline=True,
                              ), 
                   plot_bgcolor='#ffffff'
@@ -457,11 +466,15 @@ fig.update_xaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 
 
-fig.show()
+# fig.show()
+
+plot(fig, filename = 'figures/fig2.html', config = config)
+
+display(HTML('figures/fig2.html'))
 
 ### Subfigures with sliders 
 
-* $K^{trans}$: <a name="fig-2-1"></a> <a class="btn" href="#top">Back to top</a>
+* $K^{trans}$: <a name="fig-2-1"></a> 
 
 file = loadmat('fig2andfig3vars.mat')
 
@@ -521,10 +534,10 @@ sliders = [dict(
 
 
 
-fig.update_layout(title=dict(text=r'$K^{trans}$',
+fig.update_layout(title=dict(text='K<sub>trans</sub>',
                              x=0.5,
                              xanchor='center'),
-                  yaxis=dict(title=r'$\text{Percent Error}$',
+                  yaxis=dict(title='Percent Error',
                              showline=True,
                              range=[-35,5],
                              tickvals=[-35,-30,-25,-20,-15,-10,-5,0,5],
@@ -533,13 +546,17 @@ fig.update_layout(title=dict(text=r'$K^{trans}$',
                   legend=dict(yanchor='bottom', y=0.20, xanchor='right', x=0.30),
                   sliders=sliders)
 
-fig.update_xaxes(title_text=r'$\sigma_{noise}[Mm]$', ticks="outside", showline=True, linewidth=2, linecolor='black')
+fig.update_xaxes(title_text='σ<sub>noise</sub>[Mm]', ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 
 
-fig.show()
+# fig.show()
 
-* $V_{e}$: <a name="fig-2-2"></a> <a class="btn" href="#top">Back to top</a>
+plot(fig, filename = 'figures/fig2-1.html', config = config)
+
+display(HTML('figures/fig2-1.html'))
+
+* $V_{e}$: <a name="fig-2-2"></a> 
 
 file = loadmat('fig2andfig3vars.mat')
 
@@ -603,10 +620,10 @@ sliders = [dict(
 
 
 
-fig.update_layout(title=dict(text=r'$V_{e}$',
+fig.update_layout(title=dict(text='V<sub>e</sub>',
                              x=0.5,
                              xanchor='center'),
-                  yaxis=dict(title=r'$\text{Percent Error}$',
+                  yaxis=dict(title='Percent Error',
                              showline=True,
                              range=[-10,10],
                              tickvals=[-10,-5,0,5, 10],
@@ -616,13 +633,16 @@ fig.update_layout(title=dict(text=r'$V_{e}$',
                   sliders=sliders
 )
 
-fig.update_xaxes(title_text=r'$\sigma_{noise}[Mm]$', ticks="outside", showline=True, linewidth=2, linecolor='black')
+fig.update_xaxes(title_text='σ<sub>noise</sub>[Mm]', ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 
 
-fig.show()
+# fig.show()
+plot(fig, filename = 'figures/fig2-2.html', config = config)
 
-* $V_{p}$: <a name="fig-2-3"></a> <a class="btn" href="#top">Back to top</a>
+display(HTML('figures/fig2-2.html'))
+
+* $V_{p}$: <a name="fig-2-3"></a>
 
 file = loadmat('fig2andfig3vars.mat')
 
@@ -683,10 +703,10 @@ sliders = [dict(
 
 
 
-fig.update_layout(title=dict(text=r'$V_{p}$',
+fig.update_layout(title=dict(text='V<sub>p</sub>',
                              x=0.5,
                              xanchor='center'),
-                  yaxis=dict(title=r'$\text{Percent Error}$',
+                  yaxis=dict(title='Percent Error',
                              showline=True,
                              range=[-170,50],
                              tickvals=[-160,-130,-100,-70,-40,-10,20,50],
@@ -696,14 +716,18 @@ fig.update_layout(title=dict(text=r'$V_{p}$',
                   sliders=sliders
 )
 
-fig.update_xaxes(title_text=r'$\sigma_{noise}[Mm]$', ticks="outside", showline=True, linewidth=2, linecolor='black')
+fig.update_xaxes(title_text='σ<sub>noise</sub>[Mm]', ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 
 
 
-fig.show()
+# fig.show()
 
-## Figure 3 <a name="figure-3"></a> <a class="btn" href="#top">Back to top</a>
+plot(fig, filename = 'figures/fig2-3.html', config = config)
+
+display(HTML('figures/fig2-3.html'))
+
+## Figure 3 <a name="figure-3"></a> 
 
 file = loadmat('fig2andfig3vars.mat')
 
@@ -722,7 +746,7 @@ errQt2 = file['errQt2']
 errMd2 = file['errMd2']
 
 fig = make_subplots(rows=1, cols=3, 
-                    subplot_titles=(r'$\widehat{k_{ep,RR}}$', r'$K^{trans}_{RR}$', r'$V_{e,RR}$'),
+                    subplot_titles=('k&#770;<sub>ep,RR</sub>', 'K<sup>trans</sup><sub>RR</sub>', 'V<sub>e,RR</sub>'),
                     )
 
 # First subplot 
@@ -813,7 +837,7 @@ for i in range(0,4):
 # General
 
 
-fig.update_xaxes(title_text=r'$\sigma_{noise}[Mm]$', ticks="outside", showline=True, linewidth=2, linecolor='black')
+fig.update_xaxes(title_text='σ<sub>noise</sub>[Mm]', ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 
 
@@ -825,16 +849,20 @@ fig.update_xaxes(range=[0,0.05], tickvals=[0,0.01,0.02,0.03,0.04,0.05], row=1, c
 fig.update_xaxes(range=[0,0.05], tickvals=[0,0.01,0.02,0.03,0.04,0.05], row=1, col=2)
 fig.update_xaxes(range=[0,0.05], tickvals=[0,0.01,0.02,0.03,0.04,0.05], row=1, col=3)
 
-fig.update_layout(yaxis=dict(title=r'$\text{Percent Error}$',
+fig.update_layout(yaxis=dict(title='Percent Error',
                              showline=True), 
                   plot_bgcolor='#ffffff',
 )
 
-fig.show()
+# fig.show()
+
+plot(fig, filename = 'figures/fig3.html', config = config)
+
+display(HTML('figures/fig3.html'))
 
 ### Subfigures with sliders 
 
-* $\widehat{k_{ep,RR}}$ <a name="fig-3-1"></a> <a class="btn" href="#top">Back to top</a>
+* $\widehat{k_{ep,RR}}$ <a name="fig-3-1"></a> 
 
 # THIS CAN PROBABLY BE LEFT OUT BUT IT ONLY WORKS HALF OF THE TIME IF I LEAVE IT OUT SO IT'S HERE FOR NOW
 
@@ -897,10 +925,10 @@ sliders = [dict(
 )]
 
 
-fig.update_layout(title=dict(text=r'$\widehat{k_{ep,RR}}$',
+fig.update_layout(title=dict(text='k&#770;<sub>ep,RR</sub>',
                              x=0.5,
                              xanchor='center'),
-                  yaxis=dict(title=r'$\text{Percent Error}$',
+                  yaxis=dict(title='Percent Error',
                              showline=True,
                              range=[-35,5],
                              tickvals=[-35,-30,-25,-20,-15,-10,-5,0,5],
@@ -910,13 +938,17 @@ fig.update_layout(title=dict(text=r'$\widehat{k_{ep,RR}}$',
                   sliders=sliders
 )
 
-fig.update_xaxes(title_text=r'$\sigma_{noise}[Mm]$', ticks="outside", showline=True, linewidth=2, linecolor='black')
+fig.update_xaxes(title_text='σ<sub>noise</sub>[Mm]', ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 
 
-fig.show()
+# fig.show()
 
-* $K^{trans}_{RR}$ <a name="fig-3-2"></a> <a class="btn" href="#top">Back to top</a>
+plot(fig, filename = 'figures/fig3-1.html', config = config)
+
+display(HTML('figures/fig3-1.html'))
+
+* $K^{trans}_{RR}$ <a name="fig-3-2"></a> 
 
 # THIS CAN PROBABLY BE LEFT OUT BUT IT ONLY WORKS HALF OF THE TIME IF I LEAVE IT OUT SO IT'S HERE FOR NOW
 
@@ -982,10 +1014,10 @@ sliders = [dict(
 )]
 
 
-fig.update_layout(title=dict(text=r'$K^{trans}_{RR}$',
+fig.update_layout(title=dict(text='K<sup>trans</sup><sub>RR</sub>',
                              x=0.5,
                              xanchor='center'),
-                  yaxis=dict(title=r'$\text{Percent Error}$',
+                  yaxis=dict(title='Percent Error',
                              showline=True,
                              range=[-25,5],
                              tickvals=[-25,-20,-15,-10,-5,0,5],
@@ -995,13 +1027,16 @@ fig.update_layout(title=dict(text=r'$K^{trans}_{RR}$',
                   sliders=sliders
 )
 
-fig.update_xaxes(title_text=r'$\sigma_{noise}[Mm]$', ticks="outside", showline=True, linewidth=2, linecolor='black')
+fig.update_xaxes(title_text='σ<sub>noise</sub>[Mm]', ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 
 
-fig.show()
+# fig.show()
 
-* $V_{e,RR}$ <a name="fig-3-3"></a> <a class="btn" href="#top">Back to top</a>
+plot(fig, filename = 'figures/fig3-2.html', config = config)
+display(HTML('figures/fig3-2.html'))
+
+* $V_{e,RR}$ <a name="fig-3-3"></a> 
 
 # THIS CAN PROBABLY BE LEFT OUT BUT IT ONLY WORKS HALF OF THE TIME IF I LEAVE IT OUT SO IT'S HERE FOR NOW
 
@@ -1069,10 +1104,10 @@ sliders = [dict(
 
 
 
-fig.update_layout(title=dict(text=r'$V_{e,RR}$',
+fig.update_layout(title=dict(text='V<sub>e,RR</sub>',
                              x=0.5,
                              xanchor='center'),
-                  yaxis=dict(title=r'$\text{Percent Error}$',
+                  yaxis=dict(title='Percent Error',
                              showline=True,
                              range=[-10,5],
                              tickvals=[-10,-5,0,5],
@@ -1082,13 +1117,16 @@ fig.update_layout(title=dict(text=r'$V_{e,RR}$',
                   sliders=sliders
 )
 
-fig.update_xaxes(title_text=r'$\sigma_{noise}[Mm]$', ticks="outside", showline=True, linewidth=2, linecolor='black')
+fig.update_xaxes(title_text='σ<sub>noise</sub>[Mm]', ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 
 
-fig.show()
+# fig.show()
 
-## Figure 4 <a name="figure-4"></a> <a class="btn" href="#top">Back to top</a>
+plot(fig, filename = 'figures/fig3-3.html', config = config)
+display(HTML('figures/fig3-3.html'))
+
+## Figure 4 <a name="figure-4"></a> 
 
 file = loadmat('fig4vars.mat')
 
@@ -1119,7 +1157,7 @@ Vp_avg3 = np.squeeze(np.asarray(np.reshape(file['Vp_avg3'], 9)))
 
 # The subplot titles are different in the paper and in the code (check which ones to use)
 fig = make_subplots(rows=1, cols=3, 
-                    subplot_titles=(r'$K^{trans}$', r'$V_{e}$', r'$V_{p}$'))
+                    subplot_titles=('K<sup>trans</sup>', 'v<sub>e</sub>', r'v<sub>p</sub>'))
 
 legend_values=cycle(['ETM','RRIFT','RRM w/ fixed RR params'])
 line_colours = cycle(['#bfbfbf', '#292447', '#e45947'])
@@ -1209,16 +1247,16 @@ for i in range(0,3):
     ),row=1, col=3)
     
     
-fig.update_xaxes(title_text=r'$\textrm{True }K^{trans}$', row=1, col=1)
-fig.update_xaxes(title_text=r'$\textrm{True }V_{e, RR}$', row=1, col=2)
-fig.update_xaxes(title_text=r'$\textrm{True }K^{trans}_{RR}$', row=1, col=3)
+fig.update_xaxes(title_text='Reference K<sup>trans</sup>[min<sup>-1</sup>]', row=1, col=1)
+fig.update_xaxes(title_text='Reference v<sub>e</sub>', row=1, col=2)
+fig.update_xaxes(title_text='Reference K<sup>trans</sup>[min<sup>-1</sup>]', row=1, col=3)
 
 fig.update_yaxes(range=[-100,100], tickvals=[-100, -80, -60, -40, -20, 0, 20, 40, 60, 80, 100], row=1, col=1)
 fig.update_yaxes(range=[-100,100], tickvals=[-100, -80, -60, -40, -20, 0, 20, 40, 60, 80, 100], row=1, col=2)
 fig.update_yaxes(range=[-100,100], tickvals=[-100, -80, -60, -40, -20, 0, 20, 40, 60, 80, 100], row=1, col=3)
 
     
-fig.update_layout(yaxis=dict(title=r'$\text{Percent Error}$',showline=True), 
+fig.update_layout(yaxis=dict(title='Percent Error',showline=True), 
                   plot_bgcolor='#ffffff'
                   #legend=dict(yanchor='bottom', y=0.20, xanchor='right', x=0.30) -- change legend position
 )
@@ -1227,9 +1265,12 @@ fig.update_xaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 
     
-fig.show()
+# fig.show()
 
-* $K^{trans}$ <a name="fig-4-1"></a> <a class="btn" href="#top">Back to top</a>
+plot(fig, filename = 'figures/fig4.html', config = config)
+display(HTML('figures/fig4.html'))
+
+* $K^{trans}$ <a name="fig-4-1"></a>
 
 # THESE IMPORTS ARE PROBABLY NOT NEEDED BUT IT SEEMS TO NOT ALWAYS WORK FOR ME IF I LEAVE THEM OUT
 
@@ -1303,10 +1344,10 @@ sliders = [dict(
 
 
 
-fig.update_layout(title=dict(text=r'$K^{trans}$',
+fig.update_layout(title=dict(text='K<sup>trans</sup>',
                              x=0.5,
                              xanchor='center'),
-                  yaxis=dict(title=r'$\text{Percent Error}$',
+                  yaxis=dict(title='Percent Error',
                              showline=True,
                              range=[-40,160],
                              tickvals=[-40, -20, 0, 20, 40, 60, 80, 100, 120, 140, 160]
@@ -1316,13 +1357,16 @@ fig.update_layout(title=dict(text=r'$K^{trans}$',
                   sliders=sliders
 )
 
-fig.update_xaxes(title_text=r'$\textrm{True }K^{trans}$', ticks="outside", showline=True, linewidth=2, linecolor='black')
+fig.update_xaxes(title_text='Reference K<sup>trans</sup>[min<sup>-1</sup>]', ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 
 
-fig.show()
+# fig.show()
 
-* $V_e$ <a name="fig-4-2"></a> <a class="btn" href="#top">Back to top</a>
+plot(fig, filename = 'figures/fig4-1.html', config = config)
+display(HTML('figures/fig4-1.html'))
+
+* $V_e$ <a name="fig-4-2"></a> 
 
 # THESE IMPORTS ARE PROBABLY NOT NEEDED BUT IT SEEMS TO NOT ALWAYS WORK FOR ME IF I LEAVE THEM OUT
 
@@ -1397,10 +1441,10 @@ sliders = [dict(
 
 
 
-fig.update_layout(title=dict(text=r'$V_{e}$',
+fig.update_layout(title=dict(text='v<sub>e</sub>',
                              x=0.5,
                              xanchor='center'),
-                  yaxis=dict(title=r'$\text{Percent Error}$',
+                  yaxis=dict(title='Percent Error',
                              showline=True,
                              range=[-30, 50],
                              tickvals=[-30, -20, -10, 0, 10, 20, 30, 40, 50]
@@ -1410,13 +1454,16 @@ fig.update_layout(title=dict(text=r'$V_{e}$',
                   sliders=sliders
 )
 
-fig.update_xaxes(title_text=r'$\textrm{True }V_{e, RR}$', ticks="outside", showline=True, linewidth=2, linecolor='black')
+fig.update_xaxes(title_text='Reference v<sub>e</sub>', ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 
 
-fig.show()
+# fig.show()
 
-* $V_p$ <a name="fig-4-3"></a> <a class="btn" href="#top">Back to top</a>
+plot(fig, filename = 'figures/fig4-2.html', config = config)
+display(HTML('figures/fig4-2.html'))
+
+* $V_p$ <a name="fig-4-3"></a> 
 
 # THESE IMPORTS ARE PROBABLY NOT NEEDED BUT IT SEEMS TO NOT ALWAYS WORK FOR ME IF I LEAVE THEM OUT
 
@@ -1489,10 +1536,10 @@ sliders = [dict(
 
 
 
-fig.update_layout(title=dict(text=r'$V_{p}$',
+fig.update_layout(title=dict(text='v<sub>p</sub>',
                              x=0.5,
                              xanchor='center'),
-                  yaxis=dict(title=r'$\text{Percent Error}$',
+                  yaxis=dict(title='Percent Error',
                              showline=True,
                              range=[-80, 240],
                              tickvals=[-80, -40, 0, 40, 80, 120, 160, 200, 240]
@@ -1502,13 +1549,16 @@ fig.update_layout(title=dict(text=r'$V_{p}$',
                   sliders=sliders
 )
 
-fig.update_xaxes(title_text=r'$\textrm{True }K^{trans}_{RR}$', ticks="outside", showline=True, linewidth=2, linecolor='black')
+fig.update_xaxes(title_text='Reference K<sup>trans</sup>[min<sup>-1</sup>]', ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 
 
-fig.show()
+# fig.show()
 
-## Figure 5 <a name="figure-5"></a> <a class="btn" href="#top">Back to top</a>
+plot(fig, filename = 'figures/fig4-3.html', config = config)
+display(HTML('figures/fig4-3.html'))
+
+## Figure 5 <a name="figure-5"></a> 
 
 file = loadmat('fig5vars.mat')
 
@@ -1567,9 +1617,9 @@ fig.add_shape(type="line",
 )
 
 
-fig.update_layout(title=r'$\text{RRM with assumed }K^{trans}_{RR}$',
-                   xaxis_title=r'$ETM - K^{trans} [min^{-1}]$',
-                   yaxis_title=r'$K^{trans}\space[min^{-1}]$',
+fig.update_layout(title='RRM with assumed K<sub>RR</sub><sup>trans</sup>',
+                   xaxis_title='ETM - K<sup>trans</sup>[min<sup>-1</sup>]',
+                   yaxis_title='K<sup>trans</sup>[min<sup>-1</sup>]',
                    xaxis_tickmode = "array", 
                    xaxis_tickvals = [0, 25, 50, 75, 100], 
                    xaxis_ticktext = ['0', '0.05', '0.10', '0.15', '0.20'],
@@ -1619,10 +1669,10 @@ fig.update_layout(
         type='buttons',
         buttons=list(
             [
-            dict(label = 'RRM with assumed KtransRR',
+            dict(label = 'RRM with assumed K<sub>RR</sub><sup>trans</sup>',
                   method = 'update',
                   args = [{'visible': [True, False, False]},
-                          {'title': r'$\text{RRM with assumed }K^{trans}_{RR}$',
+                          {'title': 'RRM with assumed K<sub>RR</sub><sup>trans</sup>',
                            'showlegend':True, 'visible': True, 'annotations': annotation1}]),
              dict(label = 'RRIFT with assumed AIF tail',
                   method = 'update',
@@ -1641,17 +1691,14 @@ fig.update_layout(
 )
 
 
+# fig.show()
 
+plot(fig, filename = 'figures/fig5.html', config = config)
+display(HTML('figures/fig5.html'))
 
+## Figure 6 <a name="figure-6"></a> 
 
-
-
-
-fig.show()
-
-## Figure 6 <a name="figure-6"></a> <a class="btn" href="#top">Back to top</a>
-
-* $K_{trans}$ <a name="fig-6-1"></a> <a class="btn" href="#top">Back to top</a>
+* $K_{trans}$ <a name="fig-6-1"></a> 
 
 files = ["fig6pat1.mat", 
          "fig6pat2.mat", 
@@ -1836,9 +1883,12 @@ fig.update_layout(
 fig.update_yaxes(showticklabels = False)
 fig.update_xaxes(showticklabels = False)
 
-fig.show()
+# fig.show()
 
-* $V_{e}$ <a name="fig-6-2"></a> <a class="btn" href="#top">Back to top</a>
+plot(fig, filename = 'figures/fig6-1.html', config = config)
+display(HTML('figures/fig6-1.html'))
+
+* $V_{e}$ <a name="fig-6-2"></a> 
 
 files = ["fig6pat1.mat", 
          "fig6pat2.mat", 
@@ -2020,7 +2070,11 @@ fig.update_layout(width = 700, height = 700)
 fig.update_yaxes(autorange="reversed", showticklabels = False)
 fig.update_xaxes(showticklabels = False)
 
-* $V_{p}$ <a name="fig-6-3"></a> <a class="btn" href="#top">Back to top</a>
+# fig.show()
+plot(fig, filename = 'figures/fig6-2.html', config = config)
+display(HTML('figures/fig6-2.html'))
+
+* $V_{p}$ <a name="fig-6-3"></a> 
 
 files = ["fig6pat1.mat", 
         "fig6pat2.mat", 
@@ -2212,7 +2266,10 @@ fig.update_layout(width = 700, height = 700)
 fig.update_yaxes(autorange="reversed", showticklabels = False)
 fig.update_xaxes(showticklabels = False)
 
-## Figure 7 <a name="figure-7"></a> <a class="btn" href="#top">Back to top</a>
+plot(fig, filename = 'figures/fig6-3.html', config = config)
+display(HTML('figures/fig6-3.html'))
+
+## Figure 7 <a name="figure-7"></a>
 
 fig = make_subplots(rows=1, cols=3)
 
@@ -2285,7 +2342,7 @@ fig3_2 = go.Scatter(x=denum,
 fig.append_trace(fig3_2, 1, 3)
 
 fig.update_layout(title_text='Patient 1') 
-fig.update_xaxes(title_text=r'$Time [min]$',
+fig.update_xaxes(title_text='Time [min]',
                  range=[-1, 6], 
                  tickvals=[0, 2, 4, 6])
 
@@ -2346,11 +2403,11 @@ for i in range (1, 8):
     
     fig.append_trace(fig3_2, 1, 3)
 
-fig.update_yaxes(title_text=r'$Concentration [mM]$',
+fig.update_yaxes(title_text='Concentration [mM]',
                  row=1, col=1)
-fig.update_yaxes(title_text=r'$Concentration [mM]$',
+fig.update_yaxes(title_text='Concentration [mM]',
                  row=1, col=2)
-fig.update_yaxes(title_text=r'$Numerator$',
+fig.update_yaxes(title_text='Numerator',
                  row=1, col=3)
     
 fig.update_layout(
@@ -2472,12 +2529,15 @@ fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 
 
 
-fig.show()
+# fig.show()
 
-## Figure 8 <a name="figure-8"></a> <a class="btn" href="#top">Back to top</a>
+plot(fig, filename = 'figures/fig7.html', config = config)
+display(HTML('figures/fig7.html'))
+
+## Figure 8 <a name="figure-8"></a> 
 
 fig = make_subplots(rows=1, cols=3, 
-                    subplot_titles=(r'$k_{ep,RR} [min^{-1}]$', r'$K^{trans}_{RR}[min^{-1}]$', r'$V_{e,RR}$'))
+                    subplot_titles=('k<sub>ep,RR</sub> [min<sup>-1</sup>]', 'K<sub>RR</sub><sup>trans</sup>[min<sup>-1</sup>]', 'V<sub>e,RR</sub>'))
 
 line_colour = '#010101'
 
@@ -2570,18 +2630,18 @@ fig.append_trace(go.Scatter(x=[0,1], y=[0,1], showlegend=False, mode='lines', li
 fig.add_annotation(  
     x=0.5,
     y=0.14,
-    text=r'$\textrm{CCC: 0.917}$', 
+    text='CCC: 0.917', 
     showarrow=False, font=dict(size=40, color='black'), row=1, col=1)
 fig.add_annotation(  
     x=0.12,
     y=0.013,
-    text=r'$\textrm{CCC: 0.926}$',
+    text='CCC: 0.926',
     xref="paper", yref="paper", 
     showarrow=False, font=dict(size=40, color='black'), row=1, col=2)
 fig.add_annotation(  
     x=0.22,
     y=0.113,
-    text=r'$\textrm{CCC: 0.877}$',
+    text='CCC: 0.877',
     xref="paper", yref="paper", 
     showarrow=False, font=dict(size=40, color='black'), row=1, col=3)
 
@@ -2589,43 +2649,46 @@ fig.update_xaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_layout(plot_bgcolor="#fff")
 
-fig.update_xaxes(title_text=r'$ETM - k_{ep,RR} [min^{-1}]$',
+fig.update_xaxes(title_text='ETM - k<sub>ep,RR</sub> [min<sup>-1</sup>]',
                  range=[0.1,0.8], 
                  tickvals=[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
                  row=1, col=1)
-fig.update_xaxes(title_text=r'$ETM - K^{trans}_{RR}[min^{-1}]$',
+fig.update_xaxes(title_text='ETM - K<sub>RR</sub><sup>trans</sup>[min<sup>-1</sup>]',
                  range=[0, 0.2], 
                  tickvals=[0, 0.1, 0.2],
                  row=1, col=2)
-fig.update_xaxes(title_text=r'$ETM - V_{e,RR}$',
+fig.update_xaxes(title_text='ETM - V<sub>e,RR</sub>',
                  range=[0.1, 0.3], 
                  tickvals=[0.1, 0.2, 0.3],
                  row=1, col=3)
 
 
-fig.update_yaxes(title_text=r'$RRIFT$',
+fig.update_yaxes(title_text='RRIFT',
                  range=[0.1,0.8], 
                  tickvals=[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
                  row=1, col=1)
-fig.update_yaxes(title_text=r'$RRIFT$',
+fig.update_yaxes(title_text='RRIFT',
                  range=[0, 0.2], 
                  tickvals=[0, 0.1, 0.2],
                  row=1, col=2)
-fig.update_yaxes(title_text=r'$RRIFT$',
+fig.update_yaxes(title_text='RRIFT',
                  range=[0.1, 0.3], 
                  tickvals=[0.1, 0.2, 0.3],
                  row=1, col=3)
 
 
-fig.show()
+# fig.show()
 
-### Figure 8 - choose which subplot to view <a name="fig-8-1"></a> <a class="btn" href="#top">Back to top</a>
+plot(fig, filename = 'figures/fig8.html', config = config)
+display(HTML('figures/fig8.html'))
+
+### Figure 8 - choose which subplot to view <a name="fig-8-1"></a> 
 
 
 fig = go.Figure()
 
 line_colour = '#010101'
-titles = cycle([r'$k_{ep,RR} [min^{-1}]$', r'$K^{trans}_{RR}[min^{-1}]$', r'$V_{e,RR}$'])
+titles = cycle(['k<sub>ep,RR</sub> [min<sup>-1</sup>]', 'K<sub>RR</sub><sup>trans</sup>[min<sup>-1</sup>]', 'V<sub>e,RR</sub>'])
 
 file = loadmat('fig8vars.mat')
 xv1 = np.squeeze(np.asarray(np.reshape(file['xv1'], 8)))
@@ -2729,18 +2792,20 @@ sliders = [dict(
     steps=steps
 )]
 
-fig.update_xaxes(title_text=r'$ETM$', ticks="outside", showline=True, linewidth=2, linecolor='black')
-fig.update_yaxes(title_text=r'$RRIFT$', ticks="outside", showline=True, linewidth=2, linecolor='black')
+fig.update_xaxes(title_text='ETM', ticks="outside", showline=True, linewidth=2, linecolor='black')
+fig.update_yaxes(title_text='RRIFT', ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_layout(plot_bgcolor="#fff", sliders=sliders, title={'text': next(titles)})
 
 
 
 
-fig.show()
+# fig.show()
+plot(fig, filename = 'figures/fig8-1.html', config = config)
+display(HTML('figures/fig8-1.html'))
 
 ## Figure 9 <a name="figure-9"></a>
 
-* $K_{trans}[min^{-1}]$ <a name="fig-9-1"></a> <a class="btn" href="#top">Back to top</a>
+* $K_{trans}[min^{-1}]$ <a name="fig-9-1"></a> 
 
 files = ["fig9patient1.mat",
          "fig9patient2.mat",
@@ -2921,9 +2986,12 @@ fig.update_layout(yaxis = dict(scaleanchor = 'y'))
 fig.update_layout(title_text="Patient 1", plot_bgcolor='rgba(0,0,0,0)')
 fig.update_yaxes(autorange="reversed", showticklabels = False)
 fig.update_xaxes(showticklabels = False)
-fig.show()
+# fig.show()
 
-* $V_e$ <a name="fig-9-2"></a> <a class="btn" href="#top">Back to top</a>
+plot(fig, filename = 'figures/fig9-1.html', config = config)
+display(HTML('figures/fig9-1.html'))
+
+* $V_e$ <a name="fig-9-2"></a>
 
 files = ["fig9patient1.mat",
          "fig9patient2.mat",
@@ -3106,9 +3174,11 @@ fig.update_xaxes(showticklabels = False)
 fig.update_layout(xaxis = dict(scaleanchor = 'x'))
 fig.update_layout(plot_bgcolor='rgba(0,0,0,0)')
 
-fig.show()
+# fig.show()
+plot(fig, filename = 'figures/fig9-2.html', config = config)
+display(HTML('figures/fig9-2.html'))
 
-* $V_p$ <a name="fig-9-3"></a> <a class="btn" href="#top">Back to top</a>
+* $V_p$ <a name="fig-9-3"></a> 
 
 files = ["fig9patient1.mat",
          "fig9patient2.mat",
@@ -3291,12 +3361,15 @@ fig.update_layout(xaxis = dict(scaleanchor = 'x'))
 fig.update_layout(plot_bgcolor='rgba(0,0,0,0)')
 fig.update_xaxes(showticklabels = False)
 
-fig.show()
+# fig.show()
 
-## Figure 10 <a name="figure-10"></a> <a class="btn" href="#top">Back to top</a>
+plot(fig, filename = 'figures/fig9-3.html', config = config)
+display(HTML('figures/fig9-3.html'))
+
+## Figure 10 <a name="figure-10"></a> 
 
 fig = make_subplots(rows=1, cols=3, 
-                    subplot_titles=(r'$K^{trans}$', r'$V_e$', r'$V_p$'))
+                    subplot_titles=('K<sup>trans</sup>', 'V<sub>e</sub>', 'V<sub>p</sub>'))
 
 
 line_colours = ['#585e9a', '#f36a61']
@@ -3443,29 +3516,29 @@ fig.append_trace(go.Scatter(
 
 fig.add_hline(y=0, line_dash="dot", line_color="black", line_width=1.69, col="all")
 
-fig.update_xaxes(title_text=r'$Temporal\: Resolutions\: [s]$',
+fig.update_xaxes(title_text='Temporal Resolutions [s]',
                  range=[0,50], 
                  tickvals=[0, 10, 20, 30, 40, 50],
                  row=1, col=1)
-fig.update_xaxes(title_text=r'$Temporal\: Resolutions\: [s]$',
+fig.update_xaxes(title_text='Temporal Resolutions [s]',
                  range=[0, 50], 
                  tickvals=[0, 10, 20, 30, 40, 50],
                  row=1, col=2)
-fig.update_xaxes(title_text=r'$Temporal\: Resolutions\: [s]$',
+fig.update_xaxes(title_text='Temporal Resolutions [s]',
                  range=[0, 50], 
                  tickvals=[0, 10, 20, 30, 40, 50],
                  row=1, col=3)
 
 
-fig.update_yaxes(title_text=r'$Percent\: Change$',
+fig.update_yaxes(title_text='Percent Change',
                  range=[-100, 100], 
                  tickvals=[-100, -80, -60, -40, -20, 0, 20, 40, 60, 80, 100],
                  row=1, col=1)
-fig.update_yaxes(title_text=r'$Percent\: Change$',
+fig.update_yaxes(title_text='Percent Change',
                  range=[-100, 100], 
                  tickvals=[-100, -80, -60, -40, -20, 0, 20, 40, 60, 80, 100],
                  row=1, col=2)
-fig.update_yaxes(title_text=r'$Percent\: Change$',
+fig.update_yaxes(title_text='Percent Change',
                  range=[-100, 100], 
                  tickvals=[-100, -80, -60, -40, -20, 0, 20, 40, 60, 80, 100],
                  row=1, col=3)
@@ -3477,4 +3550,6 @@ fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 
 
     
-fig.show()
+# fig.show()
+plot(fig, filename = 'figures/fig10.html', config = config)
+display(HTML('figures/fig10.html'))
