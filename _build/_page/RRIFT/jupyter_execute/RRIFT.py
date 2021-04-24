@@ -2,7 +2,7 @@
 
 <img src="images/NotebookFactory.png">
 
-# Introduction <a name="introduction"></a> 
+# Introduction 
 
 This is a Jupyter notebook that introduces interactive plots created in plotly from some of figures in the paper [Pharmacokinetic modeling of dynamic contrast‐enhanced MRI using a reference region and input function tail](https://onlinelibrary.wiley.com/doi/abs/10.1002/mrm.27913). 
 
@@ -11,7 +11,7 @@ Link to the paper's GitHub repository: https://github.com/MPUmri/RRIFT
 GitHub link to this notebook: https://github.com/Notebook-Factory/RRIFT_notebooks
 
 
-# Abstract <a name="abstract"></a> 
+# Abstract 
 
 ##  Purpose
 Quantitative analysis of dynamic contrast‐enhanced MRI (DCE‐MRI) requires an arterial input function (AIF) which is difficult to measure. We propose the reference region and input function tail (RRIFT) approach which uses a reference tissue and the washout portion of the AIF.
@@ -46,10 +46,10 @@ config={'showLink': False, 'displayModeBar': False}
 
 
 
-## Figure 1 <a name="figure-1"></a>
+# Figure 1
 
 
-* (A) Reference Tissue <a name="reference-tissue"></a>
+* (A) Reference Tissue
 
 file = loadmat('fig1vars.mat')
 
@@ -96,7 +96,7 @@ plot(sub1, filename = 'figures/fig1-1.html', config = config)
 
 display(HTML('figures/fig1-1.html'))
 
-* (B) Tissue of Interest <a name="tissue-of-interest"></a>
+* (B) Tissue of Interest
 
 file = loadmat('fig1vars.mat')
 
@@ -144,7 +144,7 @@ fig.update_layout(title='(B) Tissue of Interest',
                    plot_bgcolor="#fff",
 )
 
-fig.add_annotation(text='Estimate k<sub>ep, RR</sub> (min<sup>-1</sup>)',
+fig.add_annotation(text='Estimated k<sub>ep, RR</sub> (min<sup>-1</sup>)',
                   xref="x", yref="y",
                   x=6, y=1.19, showarrow=False, font = dict(size = 21))
 
@@ -158,7 +158,7 @@ plot(fig, filename = 'figures/fig1-2.html', config = config)
 
 display(HTML('figures/fig1-2.html'))
 
-* (C) Input Function <a name="input-function"></a>
+* (C) Input Function 
 
 file = loadmat('fig1vars.mat')
 
@@ -288,7 +288,7 @@ plot(fig, filename = 'figures/fig1-3.html', config = config)
 display(HTML('figures/fig1-3.html'))
 
 
-* (D) RRIFT Fit <a name="rrift-fit"></a> 
+* (D) RRIFT Fit 
 
 file = loadmat('fig1vars.mat')
 
@@ -311,12 +311,12 @@ fig.add_trace(go.Scatter(name="Linear Fit",
                          mode='lines',
                          line_color="black"))
 
-fig.add_annotation(text='Slope | K<sub>RR</sub><sup>trans</sup>: 0.071 min<sup>-1</sup><br>R<sub>2</sub>: 0.9996',
+fig.add_annotation(text='Slope | K<sub>RR</sub><sup>trans</sup>: 0.071 min<sup>-1</sup><br>R<sup>2</sup>: 0.9996',
                   xref="x", yref="y",
                   x=4.7, y=0.1, showarrow=False, font = dict(size = 22))
 
 fig.update_layout(title='(D) RRIFT Fit',
-                   xaxis_title='Denominator [mM * min]',
+                   xaxis_title='Denominator [mM · min]',
                    yaxis_title='Numerator [mM]',
                    xaxis=dict(showline=True,
                               range=[-0.1,7],
@@ -336,7 +336,7 @@ plot(fig, filename = 'figures/fig1-4.html', config = config)
 
 display(HTML('figures/fig1-4.html'))
 
-## Figure 2 <a name="figure-2"></a> 
+# Figure 2
 
 file = loadmat('fig2andfig3vars.mat')
 
@@ -355,7 +355,7 @@ errQt5 = file['errQt5']
 errMd5 = file['errMd5']
 
 fig = make_subplots(rows=1, cols=3, 
-                    subplot_titles=('K<sup>trans</sup>', 'V<sup>e</sup>', 'V<sup>p</sup>'))
+                    subplot_titles=('K<sup>trans</sup>', 'v<sub>e</sub>', 'v<sub>p</sub>'))
 
 legend_values=cycle(['5','10','15','30'])
 
@@ -472,9 +472,9 @@ plot(fig, filename = 'figures/fig2.html', config = config)
 
 display(HTML('figures/fig2.html'))
 
-### Subfigures with sliders 
+## Subfigures with sliders 
 
-* $K^{trans}$: <a name="fig-2-1"></a> 
+* $K^{trans}$: 
 
 file = loadmat('fig2andfig3vars.mat')
 
@@ -534,7 +534,7 @@ sliders = [dict(
 
 
 
-fig.update_layout(title=dict(text='K<sub>trans</sub>',
+fig.update_layout(title=dict(text='K<sup>trans</sup>',
                              x=0.5,
                              xanchor='center'),
                   yaxis=dict(title='Percent Error',
@@ -556,7 +556,7 @@ plot(fig, filename = 'figures/fig2-1.html', config = config)
 
 display(HTML('figures/fig2-1.html'))
 
-* $V_{e}$: <a name="fig-2-2"></a> 
+* $v_{e}$: 
 
 file = loadmat('fig2andfig3vars.mat')
 
@@ -620,7 +620,7 @@ sliders = [dict(
 
 
 
-fig.update_layout(title=dict(text='V<sub>e</sub>',
+fig.update_layout(title=dict(text='v<sub>e</sub>',
                              x=0.5,
                              xanchor='center'),
                   yaxis=dict(title='Percent Error',
@@ -642,7 +642,7 @@ plot(fig, filename = 'figures/fig2-2.html', config = config)
 
 display(HTML('figures/fig2-2.html'))
 
-* $V_{p}$: <a name="fig-2-3"></a>
+* $v_{p}$: 
 
 file = loadmat('fig2andfig3vars.mat')
 
@@ -703,7 +703,7 @@ sliders = [dict(
 
 
 
-fig.update_layout(title=dict(text='V<sub>p</sub>',
+fig.update_layout(title=dict(text='v<sub>p</sub>',
                              x=0.5,
                              xanchor='center'),
                   yaxis=dict(title='Percent Error',
@@ -727,7 +727,7 @@ plot(fig, filename = 'figures/fig2-3.html', config = config)
 
 display(HTML('figures/fig2-3.html'))
 
-## Figure 3 <a name="figure-3"></a> 
+# Figure 3 
 
 file = loadmat('fig2andfig3vars.mat')
 
@@ -746,7 +746,7 @@ errQt2 = file['errQt2']
 errMd2 = file['errMd2']
 
 fig = make_subplots(rows=1, cols=3, 
-                    subplot_titles=('k&#770;<sub>ep,RR</sub>', 'K<sup>trans</sup><sub>RR</sub>', 'V<sub>e,RR</sub>'),
+                    subplot_titles=('k&#770;<sub>ep,RR</sub>', 'K<sub>RR</sub><sup>trans</sup>', 'v<sub>e,RR</sub>'),
                     )
 
 # First subplot 
@@ -860,9 +860,9 @@ plot(fig, filename = 'figures/fig3.html', config = config)
 
 display(HTML('figures/fig3.html'))
 
-### Subfigures with sliders 
+## Subfigures with sliders 
 
-* $\widehat{k_{ep,RR}}$ <a name="fig-3-1"></a> 
+* $\widehat{k_{ep,RR}}$ 
 
 # THIS CAN PROBABLY BE LEFT OUT BUT IT ONLY WORKS HALF OF THE TIME IF I LEAVE IT OUT SO IT'S HERE FOR NOW
 
@@ -948,7 +948,7 @@ plot(fig, filename = 'figures/fig3-1.html', config = config)
 
 display(HTML('figures/fig3-1.html'))
 
-* $K^{trans}_{RR}$ <a name="fig-3-2"></a> 
+* $K^{trans}_{RR}$ 
 
 # THIS CAN PROBABLY BE LEFT OUT BUT IT ONLY WORKS HALF OF THE TIME IF I LEAVE IT OUT SO IT'S HERE FOR NOW
 
@@ -1014,7 +1014,7 @@ sliders = [dict(
 )]
 
 
-fig.update_layout(title=dict(text='K<sup>trans</sup><sub>RR</sub>',
+fig.update_layout(title=dict(text='K<sub>RR</sub><sup>trans</sup>',
                              x=0.5,
                              xanchor='center'),
                   yaxis=dict(title='Percent Error',
@@ -1036,7 +1036,7 @@ fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 plot(fig, filename = 'figures/fig3-2.html', config = config)
 display(HTML('figures/fig3-2.html'))
 
-* $V_{e,RR}$ <a name="fig-3-3"></a> 
+* $V_{e,RR}$ 
 
 # THIS CAN PROBABLY BE LEFT OUT BUT IT ONLY WORKS HALF OF THE TIME IF I LEAVE IT OUT SO IT'S HERE FOR NOW
 
@@ -1104,7 +1104,7 @@ sliders = [dict(
 
 
 
-fig.update_layout(title=dict(text='V<sub>e,RR</sub>',
+fig.update_layout(title=dict(text='v<sub>e,RR</sub>',
                              x=0.5,
                              xanchor='center'),
                   yaxis=dict(title='Percent Error',
@@ -1126,7 +1126,7 @@ fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 plot(fig, filename = 'figures/fig3-3.html', config = config)
 display(HTML('figures/fig3-3.html'))
 
-## Figure 4 <a name="figure-4"></a> 
+# Figure 4 
 
 file = loadmat('fig4vars.mat')
 
@@ -1270,7 +1270,7 @@ fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 plot(fig, filename = 'figures/fig4.html', config = config)
 display(HTML('figures/fig4.html'))
 
-* $K^{trans}$ <a name="fig-4-1"></a>
+* $K^{trans}$ 
 
 # THESE IMPORTS ARE PROBABLY NOT NEEDED BUT IT SEEMS TO NOT ALWAYS WORK FOR ME IF I LEAVE THEM OUT
 
@@ -1366,7 +1366,7 @@ fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 plot(fig, filename = 'figures/fig4-1.html', config = config)
 display(HTML('figures/fig4-1.html'))
 
-* $V_e$ <a name="fig-4-2"></a> 
+* $v_e$
 
 # THESE IMPORTS ARE PROBABLY NOT NEEDED BUT IT SEEMS TO NOT ALWAYS WORK FOR ME IF I LEAVE THEM OUT
 
@@ -1463,7 +1463,7 @@ fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 plot(fig, filename = 'figures/fig4-2.html', config = config)
 display(HTML('figures/fig4-2.html'))
 
-* $V_p$ <a name="fig-4-3"></a> 
+* $v_p$ 
 
 # THESE IMPORTS ARE PROBABLY NOT NEEDED BUT IT SEEMS TO NOT ALWAYS WORK FOR ME IF I LEAVE THEM OUT
 
@@ -1558,7 +1558,7 @@ fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 plot(fig, filename = 'figures/fig4-3.html', config = config)
 display(HTML('figures/fig4-3.html'))
 
-## Figure 5 <a name="figure-5"></a> 
+# Figure 5
 
 file = loadmat('fig5vars.mat')
 
@@ -1696,9 +1696,9 @@ fig.update_layout(
 plot(fig, filename = 'figures/fig5.html', config = config)
 display(HTML('figures/fig5.html'))
 
-## Figure 6 <a name="figure-6"></a> 
+# Figure 6 
 
-* $K_{trans}$ <a name="fig-6-1"></a> 
+* $K^{trans}$ 
 
 files = ["fig6pat1.mat", 
          "fig6pat2.mat", 
@@ -1721,19 +1721,19 @@ img4 = patient['Ktrans_image_23']
 fig = make_subplots(rows=2, cols=2, column_widths=[0.5, 0.5], subplot_titles=('ETM', 'ETM', 'RRIFT', 'RRIFT'))
 
 fig1 = go.Heatmap(z=img1, zmin=Ktrans_lims[0], zmax=Ktrans_lims[1], hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
-                  colorscale='jet', colorbar={"title": 'K<sub>trans</sub>[min<sup>-1</sup>]'})
+                  colorscale='jet', colorbar={"title": 'K<sup>trans</sup>[min<sup>-1</sup>]'})
 fig.append_trace(fig1, 1, 1)
 
 fig2 = go.Heatmap(z=img2, zmin=Ktrans_lims[0], zmax=Ktrans_lims[1], hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
-                  colorscale='jet', colorbar={"title": 'K<sub>trans</sub>[min<sup>-1</sup>]'})
+                  colorscale='jet', colorbar={"title": 'K<sup>trans</sup>[min<sup>-1</sup>]'})
 fig.append_trace(fig2, 1, 2)
 
 fig3 = go.Heatmap(z=img3, zmin=Ktrans_lims[0], zmax=Ktrans_lims[1], hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
-                  colorscale='jet', colorbar={"title": 'K<sub>trans</sub>[min<sup>-1</sup>]'})
+                  colorscale='jet', colorbar={"title": 'K<sup>trans</sup>[min<sup>-1</sup>]'})
 fig.append_trace(fig3, 2, 1)
 
 fig4 = go.Heatmap(z=img4, zmin=Ktrans_lims[0], zmax=Ktrans_lims[1], hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
-                  colorscale='jet', colorbar={"title": 'K<sub>trans</sub>[min<sup>-1</sup>]'})
+                  colorscale='jet', colorbar={"title": 'K<sup>trans</sup>[min<sup>-1</sup>]'})
 fig.append_trace(fig4, 2, 2)
     
 fig.update_layout(width = 700, height = 700, title_text='Patient 3')
@@ -1749,19 +1749,19 @@ for i in range (3, 8):
     img4 = patient['Ktrans_image_23']
     
     fig1 = go.Heatmap(z=img1, zmin=Ktrans_lims[0], zmax=Ktrans_lims[1], colorscale='jet', hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
-                      visible=False, colorbar={"title": 'K<sub>trans</sub>[min<sup>-1</sup>]'})
+                      visible=False, colorbar={"title": 'K<sup>trans</sup>[min<sup>-1</sup>]'})
     fig.append_trace(fig1, 1, 1)
     
     fig2 = go.Heatmap(z=img2, zmin=Ktrans_lims[0], zmax=Ktrans_lims[1], colorscale='jet', hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
-                      visible=False, colorbar={"title": 'K<sub>trans</sub>[min<sup>-1</sup>]'})
+                      visible=False, colorbar={"title": 'K<sup>trans</sup>[min<sup>-1</sup>]'})
     fig.append_trace(fig2, 1, 2)
     
     fig3 = go.Heatmap(z=img1, zmin=Ktrans_lims[0], zmax=Ktrans_lims[1], colorscale='jet', hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
-                      visible=False, colorbar={"title": 'K<sub>trans</sub>[min<sup>-1</sup>]'})
+                      visible=False, colorbar={"title": 'K<sup>trans</sup>[min<sup>-1</sup>]'})
     fig.append_trace(fig3, 2, 1)
     
     fig4 = go.Heatmap(z=img2, zmin=Ktrans_lims[0], zmax=Ktrans_lims[1], colorscale='jet', hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
-                      visible=False, colorbar={"title": 'K<sub>trans</sub>[min<sup>-1</sup>]'})
+                      visible=False, colorbar={"title": 'K<sup>trans</sup>[min<sup>-1</sup>]'})
     fig.append_trace(fig4, 2, 2)
 
 fig.update_yaxes(autorange="reversed")
@@ -1888,7 +1888,7 @@ fig.update_xaxes(showticklabels = False)
 plot(fig, filename = 'figures/fig6-1.html', config = config)
 display(HTML('figures/fig6-1.html'))
 
-* $V_{e}$ <a name="fig-6-2"></a> 
+* $v_{e}$ 
 
 files = ["fig6pat1.mat", 
          "fig6pat2.mat", 
@@ -1910,19 +1910,19 @@ img4 = patient['Ve_image_23']
 fig = make_subplots(rows=2, cols=2, column_widths=[0.5, 0.5], subplot_titles=('ETM', 'ETM', 'RRIFT', 'RRIFT'))
 
 fig1 = go.Heatmap(z=img1, zmin=Ve_lims[0], zmax=Ve_lims[1], colorscale='jet', hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
-                 colorbar={"title": 'V<sub>e</sub>'})
+                 colorbar={"title": 'v<sub>e</sub>', "titlefont": dict(size=17)})
 fig.append_trace(fig1, 1, 1)
 
 fig2 = go.Heatmap(z=img2, zmin=Ve_lims[0], zmax=Ve_lims[1], colorscale='jet', hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
-                 colorbar={"title": 'V<sub>e</sub>'})
+                 colorbar={"title": 'v<sub>e</sub>', "titlefont": dict(size=17)})
 fig.append_trace(fig2, 1, 2)
 
 fig3 = go.Heatmap(z=img3, zmin=Ve_lims[0], zmax=Ve_lims[1], colorscale='jet', hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
-                 colorbar={"title": 'V<sub>e</sub>'})
+                 colorbar={"title": 'v<sub>e</sub>', "titlefont": dict(size=17)})
 fig.append_trace(fig3, 2, 1)
 
 fig4 = go.Heatmap(z=img4, zmin=Ve_lims[0], zmax=Ve_lims[1], colorscale='jet', hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
-                 colorbar={"title": 'V<sub>e</sub>'})
+                 colorbar={"title": 'v<sub>e</sub>', "titlefont": dict(size=17)})
 fig.append_trace(fig4, 2, 2)
 
 fig.update_layout(width = 700, height = 700, title = "Patient 3")
@@ -1938,19 +1938,19 @@ for i in range (3, 8):
     img4 = patient['Ve_image_23']
     
     fig1 = go.Heatmap(z=img1, zmin=Ve_lims[0], zmax=Ve_lims[1], colorscale='jet', visible=False,
-                     colorbar={"title": 'V<sub>e</sub>'}, hovertemplate="<br>".join(["z: %{z}<extra></extra>"]))
+                     colorbar={"title": 'v<sub>e</sub>', "titlefont": dict(size=17)}, hovertemplate="<br>".join(["z: %{z}<extra></extra>"]))
     fig.append_trace(fig1, 1, 1)
 
     fig2 = go.Heatmap(z=img2, zmin=Ve_lims[0], zmax=Ve_lims[1], colorscale='jet', visible=False,
-                     colorbar={"title": 'V<sub>e</sub>'}, hovertemplate="<br>".join(["z: %{z}<extra></extra>"]))
+                     colorbar={"title": 'v<sub>e</sub>', "titlefont": dict(size=17)}, hovertemplate="<br>".join(["z: %{z}<extra></extra>"]))
     fig.append_trace(fig2, 1, 2)
 
     fig3 = go.Heatmap(z=img3, zmin=Ve_lims[0], zmax=Ve_lims[1], colorscale='jet', visible=False,
-                     colorbar={"title": 'V<sub>e</sub>'}, hovertemplate="<br>".join(["z: %{z}<extra></extra>"]))
+                     colorbar={"title": 'v<sub>e</sub>', "titlefont": dict(size=17)}, hovertemplate="<br>".join(["z: %{z}<extra></extra>"]))
     fig.append_trace(fig3, 2, 1)
 
     fig4 = go.Heatmap(z=img4, zmin=Ve_lims[0], zmax=Ve_lims[1], colorscale='jet', visible=False,
-                     colorbar={"title": 'V<sub>e</sub>'}, hovertemplate="<br>".join(["z: %{z}<extra></extra>"]))
+                     colorbar={"title": 'v<sub>e</sub>', "titlefont": dict(size=17)}, hovertemplate="<br>".join(["z: %{z}<extra></extra>"]))
     fig.append_trace(fig4, 2, 2)
     
 
@@ -2074,7 +2074,7 @@ fig.update_xaxes(showticklabels = False)
 plot(fig, filename = 'figures/fig6-2.html', config = config)
 display(HTML('figures/fig6-2.html'))
 
-* $V_{p}$ <a name="fig-6-3"></a> 
+* $v_{p}$ 
 
 files = ["fig6pat1.mat", 
         "fig6pat2.mat", 
@@ -2104,19 +2104,19 @@ img4[np.isnan(img4)] = 0
 fig = make_subplots(rows=2, cols=2, column_widths=[0.5, 0.5], subplot_titles=('ETM', 'ETM', 'RRIFT', 'RRIFT'))
 
 fig1 = go.Heatmap(z=img1, zmin=Vp_lims[0], zmax=Vp_lims[1], colorscale='jet', 
-                  colorbar={"title": 'V<sub>p</sub>'}, hovertemplate="<br>".join(["z: %{z}<extra></extra>"]))
+                  colorbar={"title": 'v<sub>p</sub>', "titlefont": dict(size=17)}, hovertemplate="<br>".join(["z: %{z}<extra></extra>"]))
 fig.append_trace(fig1, 1, 1)
 
 fig2 = go.Heatmap(z=img2, zmin=Vp_lims[0], zmax=Vp_lims[1], colorscale='jet', 
-                  colorbar={"title": 'V<sub>p</sub>'}, hovertemplate="<br>".join(["z: %{z}<extra></extra>"]))
+                  colorbar={"title": 'v<sub>p</sub>', "titlefont": dict(size=17)}, hovertemplate="<br>".join(["z: %{z}<extra></extra>"]))
 fig.append_trace(fig2, 1, 2)
 
 fig3 = go.Heatmap(z=img3, zmin=Vp_lims[0], zmax=Vp_lims[1], colorscale='jet', 
-                  colorbar={"title": 'V<sub>p</sub>'}, hovertemplate="<br>".join(["z: %{z}<extra></extra>"]))
+                  colorbar={"title": 'v<sub>p</sub>', "titlefont": dict(size=17)}, hovertemplate="<br>".join(["z: %{z}<extra></extra>"]))
 fig.append_trace(fig3, 2, 1)
 
 fig4 = go.Heatmap(z=img4, zmin=Vp_lims[0], zmax=Vp_lims[1], colorscale='jet', 
-                  colorbar={"title": 'V<sub>p</sub>'}, hovertemplate="<br>".join(["z: %{z}<extra></extra>"]))
+                  colorbar={"title": 'v<sub>p</sub>', "titlefont": dict(size=17)}, hovertemplate="<br>".join(["z: %{z}<extra></extra>"]))
 fig.append_trace(fig4, 2, 2)
 
 # STARTING FROM PATIENT 4 BECAUSE PATIENT 1 AND 2 ARE EMPTY 
@@ -2135,19 +2135,19 @@ for i in range (3, 8):
     img4[np.isnan(img4)] = 0
 
     fig1 = go.Heatmap(z=img1, zmin=Ve_lims[0], zmax=Vp_lims[1], colorscale='jet', hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
-                      visible=False, colorbar={"title": 'V<sub>p</sub>'})
+                      visible=False, colorbar={"title": 'v<sub>p</sub>', "titlefont": dict(size=17)})
     fig.append_trace(fig1, 1, 1)
 
     fig2 = go.Heatmap(z=img2, zmin=Ve_lims[0], zmax=Vp_lims[1], colorscale='jet', hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
-                      visible=False, colorbar={"title": 'V<sub>p</sub>'})
+                      visible=False, colorbar={"title": 'v<sub>p</sub>', "titlefont": dict(size=17)})
     fig.append_trace(fig2, 1, 2)
 
     fig3 = go.Heatmap(z=img3, zmin=Ve_lims[0], zmax=Vp_lims[1], colorscale='jet', hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
-                      visible=False, colorbar={"title": 'V<sub>p</sub>'})
+                      visible=False, colorbar={"title": 'v<sub>p</sub>', "titlefont": dict(size=17)})
     fig.append_trace(fig3, 2, 1)
 
     fig4 = go.Heatmap(z=img4, zmin=Ve_lims[0], zmax=Vp_lims[1], colorscale='jet', hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
-                      visible=False, colorbar={"title": 'V<sub>p</sub>'})
+                      visible=False, colorbar={"title": 'v<sub>p</sub>', "titlefont": dict(size=17)})
     fig.append_trace(fig4, 2, 2)
 
     
@@ -2269,7 +2269,7 @@ fig.update_xaxes(showticklabels = False)
 plot(fig, filename = 'figures/fig6-3.html', config = config)
 display(HTML('figures/fig6-3.html'))
 
-## Figure 7 <a name="figure-7"></a>
+# Figure 7 
 
 fig = make_subplots(rows=1, cols=3)
 
@@ -2534,10 +2534,10 @@ fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 plot(fig, filename = 'figures/fig7.html', config = config)
 display(HTML('figures/fig7.html'))
 
-## Figure 8 <a name="figure-8"></a> 
+# Figure 8
 
 fig = make_subplots(rows=1, cols=3, 
-                    subplot_titles=('k<sub>ep,RR</sub> [min<sup>-1</sup>]', 'K<sub>RR</sub><sup>trans</sup>[min<sup>-1</sup>]', 'V<sub>e,RR</sub>'))
+                    subplot_titles=('k<sub>ep,RR</sub> [min<sup>-1</sup>]', 'K<sub>RR</sub><sup>trans</sup>[min<sup>-1</sup>]', 'v<sub>e,RR</sub>'))
 
 line_colour = '#010101'
 
@@ -2631,19 +2631,19 @@ fig.add_annotation(
     x=0.5,
     y=0.14,
     text='CCC: 0.917', 
-    showarrow=False, font=dict(size=40, color='black'), row=1, col=1)
+    showarrow=False, font=dict(size=20, color='black'), row=1, col=1)
 fig.add_annotation(  
     x=0.12,
     y=0.013,
     text='CCC: 0.926',
     xref="paper", yref="paper", 
-    showarrow=False, font=dict(size=40, color='black'), row=1, col=2)
+    showarrow=False, font=dict(size=20, color='black'), row=1, col=2)
 fig.add_annotation(  
     x=0.22,
     y=0.113,
     text='CCC: 0.877',
     xref="paper", yref="paper", 
-    showarrow=False, font=dict(size=40, color='black'), row=1, col=3)
+    showarrow=False, font=dict(size=20, color='black'), row=1, col=3)
 
 fig.update_xaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
@@ -2657,7 +2657,7 @@ fig.update_xaxes(title_text='ETM - K<sub>RR</sub><sup>trans</sup>[min<sup>-1</su
                  range=[0, 0.2], 
                  tickvals=[0, 0.1, 0.2],
                  row=1, col=2)
-fig.update_xaxes(title_text='ETM - V<sub>e,RR</sub>',
+fig.update_xaxes(title_text='ETM - v<sub>e,RR</sub>',
                  range=[0.1, 0.3], 
                  tickvals=[0.1, 0.2, 0.3],
                  row=1, col=3)
@@ -2682,13 +2682,13 @@ fig.update_yaxes(title_text='RRIFT',
 plot(fig, filename = 'figures/fig8.html', config = config)
 display(HTML('figures/fig8.html'))
 
-### Figure 8 - choose which subplot to view <a name="fig-8-1"></a> 
+## Figure 8 - choose which subplot to view 
 
 
 fig = go.Figure()
 
 line_colour = '#010101'
-titles = cycle(['k<sub>ep,RR</sub> [min<sup>-1</sup>]', 'K<sub>RR</sub><sup>trans</sup>[min<sup>-1</sup>]', 'V<sub>e,RR</sub>'])
+titles = cycle(['k<sub>ep,RR</sub> [min<sup>-1</sup>]', 'K<sub>RR</sub><sup>trans</sup>[min<sup>-1</sup>]', 'v<sub>e,RR</sub>'])
 
 file = loadmat('fig8vars.mat')
 xv1 = np.squeeze(np.asarray(np.reshape(file['xv1'], 8)))
@@ -2770,8 +2770,8 @@ for i in range (1, 4):
 # Default value on the slider    
 fig.data[0].visible = True
 legend_values = cycle(['ETM - k<sub>ep,RR</sub> [min<sup>-1</sup>]',
-                       'ETM - K<sup>trans</sup><sub>RR</sub>[min<sub>-1</sub>]', 
-                       'ETM - V<sub>e,RR</sub>'])
+                       'ETM - K<sub>RR</sub><sup>trans</sup>[min<sup>-1</sup>]', 
+                       'ETM - v<sub>e,RR</sub>'])
 
 # Create and add slider
 steps = []
@@ -2780,7 +2780,8 @@ for i in range(len(fig.data)):
         method="update",
         args=[{"visible": [False] * len(fig.data)},
              {'title.text': next(titles)}],
-        label=next(legend_values)       
+        label=next(legend_values),
+        
     )
     step["args"][0]["visible"][i] = True  # Toggle i'th trace to "visible"
     steps.append(step)
@@ -2789,7 +2790,8 @@ sliders = [dict(
     active=0,
     currentvalue={"prefix": "ETM - "},
     pad={"t": 70}, #upper padding 
-    steps=steps
+    steps=steps,
+    font=dict(size=17)
 )]
 
 fig.update_xaxes(title_text='ETM', ticks="outside", showline=True, linewidth=2, linecolor='black')
@@ -2803,9 +2805,9 @@ fig.update_layout(plot_bgcolor="#fff", sliders=sliders, title={'text': next(titl
 plot(fig, filename = 'figures/fig8-1.html', config = config)
 display(HTML('figures/fig8-1.html'))
 
-## Figure 9 <a name="figure-9"></a>
+# Figure 9
 
-* $K_{trans}[min^{-1}]$ <a name="fig-9-1"></a> 
+* $K^{trans}[min^{-1}]$
 
 files = ["fig9patient1.mat",
          "fig9patient2.mat",
@@ -2826,7 +2828,7 @@ fig = make_subplots(rows=2, cols=2, column_widths=[0.5, 0.5], subplot_titles=('E
 
 sub1 = go.Heatmap(z=mapKtE1[:,:,myS-1].squeeze(),
                   zmin=0, zmax=0.15, colorscale='jet',
-                  colorbar={"title": 'K<sub>trans</sub>[min<sup>-1</sup>]'},
+                  colorbar={"title": 'K<sup>trans</sup>[min<sup>-1</sup>]'},
                   hoverinfo='x+y+z',
                   hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                   visible=True)
@@ -2835,7 +2837,7 @@ fig.append_trace(sub1,1,1)
 sub2 = go.Heatmap(z=mapKtR1[:,:,myS-1].squeeze(),
                   zmin=0, zmax=0.15,
                   colorscale='jet',
-                  colorbar={"title": 'K<sub>trans</sub>[min<sup>-1</sup>]'},
+                  colorbar={"title": 'K<sup>trans</sup>[min<sup>-1</sup>]'},
                   hoverinfo='x+y+z',
                   hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                   visible=True)
@@ -2844,7 +2846,7 @@ fig.append_trace(sub2,1,2)
 sub3 = go.Heatmap(z=mapKtE2[:,:,myS-1].squeeze(),
                   zmin=0, zmax=0.15,
                   colorscale='jet',
-                  colorbar={"title": 'K<sub>trans</sub>[min<sup>-1</sup>]'},
+                  colorbar={"title": 'K<sup>trans</sup>[min<sup>-1</sup>]'},
                   hoverinfo='x+y+z',
                   hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                   visible=True)
@@ -2853,7 +2855,7 @@ fig.append_trace(sub3,2,1)
 sub4 = go.Heatmap(z=mapKtR2[:,:,myS-1].squeeze(),
                   zmin=0, zmax=0.15,
                   colorscale='jet',
-                  colorbar={"title": 'K<sub>trans</sub>[min<sup>-1</sup>]'},
+                  colorbar={"title": 'K<sup>trans</sup>[min<sup>-1</sup>]'},
                   hoverinfo='x+y+z',
                   hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                   visible=True)
@@ -2872,7 +2874,7 @@ for i in range(1,5):
     sub1 = go.Heatmap(z=mapKtE1[:,:,myS-1].squeeze(),
                       zmin=0, zmax=0.15,
                       colorscale='jet',
-                      colorbar={"title": 'K<sub>trans</sub>[min<sup>-1</sup>]'},
+                      colorbar={"title": 'K<sup>trans</sup>[min<sup>-1</sup>]'},
                       hoverinfo='x+y+z',
                       hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                       visible=False)
@@ -2881,7 +2883,7 @@ for i in range(1,5):
     sub2 = go.Heatmap(z=mapKtR1[:,:,myS-1].squeeze(),
                       zmin=0, zmax=0.15,
                       colorscale='jet',
-                      colorbar={"title": 'K<sub>trans</sub>[min<sup>-1</sup>]'},
+                      colorbar={"title": 'K<sup>trans</sup>[min<sup>-1</sup>]'},
                       hoverinfo='x+y+z',
                       hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                       visible=False)
@@ -2890,7 +2892,7 @@ for i in range(1,5):
     sub3 = go.Heatmap(z=mapKtE2[:,:,myS-1].squeeze(),
                       zmin=0, zmax=0.15,
                       colorscale='jet',
-                      colorbar={"title": 'K<sub>trans</sub>[min<sup>-1</sup>]'},
+                      colorbar={"title": 'K<sup>trans</sup>[min<sup>-1</sup>]'},
                       hoverinfo='x+y+z',
                       hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                       visible=False)
@@ -2899,7 +2901,7 @@ for i in range(1,5):
     sub4 = go.Heatmap(z=mapKtR2[:,:,myS-1].squeeze(),
                       zmin=0, zmax=0.15,
                       colorscale='jet',
-                      colorbar={"title": 'K<sub>trans</sub>[min<sup>-1</sup>]'},
+                      colorbar={"title": 'K<sup>trans</sup>[min<sup>-1</sup>]'},
                       hoverinfo='x+y+z',
                       hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                       visible=False)
@@ -2991,7 +2993,7 @@ fig.update_xaxes(showticklabels = False)
 plot(fig, filename = 'figures/fig9-1.html', config = config)
 display(HTML('figures/fig9-1.html'))
 
-* $V_e$ <a name="fig-9-2"></a>
+* $v_e$ 
 
 files = ["fig9patient1.mat",
          "fig9patient2.mat",
@@ -3014,7 +3016,7 @@ fig = make_subplots(rows=2, cols=2, column_widths=[0.5, 0.5], subplot_titles=('E
 sub1 = go.Heatmap(z=mapVeE1[:,:,myS-1].squeeze(),
                   zmin=0, zmax=0.5,
                   colorscale='jet',
-                  colorbar={"title": 'Ve'},
+                  colorbar={"title": 'v<sub>e</sub>', "titlefont": dict(size=17)},
                   hoverinfo='x+y+z',
                   hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                   visible=True)
@@ -3023,7 +3025,7 @@ fig.append_trace(sub1,1,1)
 sub2 = go.Heatmap(z=mapVeR1[:,:,myS-1].squeeze(),
                   zmin=0, zmax=0.5,
                   colorscale='jet',
-                  colorbar={"title": 'Ve'},
+                  colorbar={"title": 'v<sub>e</sub>', "titlefont": dict(size=17)},
                   hoverinfo='x+y+z',
                   hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                   visible=True)
@@ -3032,7 +3034,7 @@ fig.append_trace(sub2,1,2)
 sub3 = go.Heatmap(z=mapVeE2[:,:,myS-1].squeeze(),
                   zmin=0, zmax=0.5,
                   colorscale='jet',
-                  colorbar={"title": 'Ve'},
+                  colorbar={"title": 'v<sub>e</sub>', "titlefont": dict(size=17)},
                   hoverinfo='x+y+z',
                   hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                   visible=True)
@@ -3041,7 +3043,7 @@ fig.append_trace(sub3,2,1)
 sub4 = go.Heatmap(z=mapVeR2[:,:,myS-1].squeeze(),
                   zmin=0, zmax=0.5,
                   colorscale='jet',
-                  colorbar={"title": 'Ve'},
+                  colorbar={"title": 'v<sub>e</sub>', "titlefont": dict(size=17)},
                   hoverinfo='x+y+z',
                   hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                   visible=True)
@@ -3061,7 +3063,7 @@ for i in range(1,5):
     sub1 = go.Heatmap(z=mapVeE1[:,:,myS-1].squeeze(),
                       zmin=0, zmax=0.5,
                       colorscale='jet',
-                      colorbar={"title": 'Ve'},
+                      colorbar={"title": 'v<sub>e</sub>', "titlefont": dict(size=17)},
                       hoverinfo='x+y+z',
                       hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                       visible=False)
@@ -3070,7 +3072,7 @@ for i in range(1,5):
     sub2 = go.Heatmap(z=mapVeR1[:,:,myS-1].squeeze(),
                       zmin=0, zmax=0.5,
                       colorscale='jet',
-                      colorbar={"title": 'Ve'},
+                      colorbar={"title": 'v<sub>e</sub>', "titlefont": dict(size=17)},
                       hoverinfo='x+y+z',
                       hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                       visible=False)
@@ -3079,7 +3081,7 @@ for i in range(1,5):
     sub3 = go.Heatmap(z=mapVeE2[:,:,myS-1].squeeze(),
                       zmin=0, zmax=0.5,
                       colorscale='jet',
-                      colorbar={"title": 'Ve'},
+                      colorbar={"title": 'v<sub>e</sub>', "titlefont": dict(size=17)},
                       hoverinfo='x+y+z',
                       hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                       visible=False)
@@ -3088,7 +3090,7 @@ for i in range(1,5):
     sub4 = go.Heatmap(z=mapVeR2[:,:,myS-1].squeeze(),
                       zmin=0, zmax=0.5,
                       colorscale='jet',
-                      colorbar={"title": 'Ve'},
+                      colorbar={"title": 'v<sub>e</sub>', "titlefont": dict(size=17)},
                       hoverinfo='x+y+z',
                       hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                       visible=False)
@@ -3178,7 +3180,7 @@ fig.update_layout(plot_bgcolor='rgba(0,0,0,0)')
 plot(fig, filename = 'figures/fig9-2.html', config = config)
 display(HTML('figures/fig9-2.html'))
 
-* $V_p$ <a name="fig-9-3"></a> 
+* $v_p$
 
 files = ["fig9patient1.mat",
          "fig9patient2.mat",
@@ -3201,7 +3203,7 @@ fig = make_subplots(rows=2, cols=2, column_widths=[0.5, 0.5], subplot_titles=('E
 sub1 = go.Heatmap(z=mapVpE1[:,:,myS-1].squeeze(),
                   zmin=0, zmax=0.15,
                   colorscale='jet',
-                  colorbar={"title": 'Vp'},
+                  colorbar={"title": 'v<sub>p</sub>', "titlefont": dict(size=17)},
                   hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                   hoverinfo='x+y+z',
                   
@@ -3211,7 +3213,7 @@ fig.append_trace(sub1,1,1)
 sub2 = go.Heatmap(z=mapVpR1[:,:,myS-1].squeeze(),
                   zmin=0, zmax=0.15,
                   colorscale='jet',
-                  colorbar={"title": 'Vp'},
+                  colorbar={"title": 'v<sub>p</sub>', "titlefont": dict(size=17)},
                   hoverinfo='x+y+z',
                   hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                   visible=True)
@@ -3220,7 +3222,7 @@ fig.append_trace(sub2,1,2)
 sub3 = go.Heatmap(z=mapVpE2[:,:,myS-1].squeeze(),
                   zmin=0, zmax=0.15,
                   colorscale='jet',
-                  colorbar={"title": 'Vp'},
+                  colorbar={"title": 'v<sub>p</sub>', "titlefont": dict(size=17)},
                   hoverinfo='x+y+z',
                   hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                   visible=True)
@@ -3229,7 +3231,7 @@ fig.append_trace(sub3,2,1)
 sub4 = go.Heatmap(z=mapVpR2[:,:,myS-1].squeeze(),
                   zmin=0, zmax=0.15,
                   colorscale='jet',
-                  colorbar={"title": 'Vp'},
+                  colorbar={"title": 'v<sub>p</sub>', "titlefont": dict(size=17)},
                   hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                   hoverinfo='x+y+z',
                   visible=True)
@@ -3248,7 +3250,7 @@ for i in range(1,5):
     sub1 = go.Heatmap(z=mapVpE1[:,:,myS-1].squeeze(),
                       zmin=0, zmax=0.15,
                       colorscale='jet',
-                      colorbar={"title": 'Vp'},
+                      colorbar={"title": 'v<sub>p</sub>', "titlefont": dict(size=17)},
                       hoverinfo='x+y+z',
                       hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                       visible=False)
@@ -3257,7 +3259,7 @@ for i in range(1,5):
     sub2 = go.Heatmap(z=mapVpR1[:,:,myS-1].squeeze(),
                       zmin=0, zmax=0.15,
                       colorscale='jet',
-                      colorbar={"title": 'Vp'},
+                      colorbar={"title": 'v<sub>p</sub>', "titlefont": dict(size=17)},
                       hoverinfo='x+y+z',
                       hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                       visible=False)
@@ -3266,7 +3268,7 @@ for i in range(1,5):
     sub3 = go.Heatmap(z=mapVpE2[:,:,myS-1].squeeze(),
                       zmin=0, zmax=0.15,
                       colorscale='jet',
-                      colorbar={"title": 'Vp'},
+                      colorbar={"title": 'v<sub>p</sub>', "titlefont": dict(size=17)},
                       hoverinfo='x+y+z',
                       hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                       visible=False)
@@ -3275,7 +3277,7 @@ for i in range(1,5):
     sub4 = go.Heatmap(z=mapVpR2[:,:,myS-1].squeeze(),
                       zmin=0, zmax=0.15,
                       colorscale='jet',
-                      colorbar={"title": 'Vp'},
+                      colorbar={"title": 'v<sub>p</sub>', "titlefont": dict(size=17)},
                       hoverinfo='x+y+z',
                       hovertemplate="<br>".join(["z: %{z}<extra></extra>"]),
                       visible=False)
@@ -3366,10 +3368,10 @@ fig.update_xaxes(showticklabels = False)
 plot(fig, filename = 'figures/fig9-3.html', config = config)
 display(HTML('figures/fig9-3.html'))
 
-## Figure 10 <a name="figure-10"></a> 
+# Figure 10
 
 fig = make_subplots(rows=1, cols=3, 
-                    subplot_titles=('K<sup>trans</sup>', 'V<sub>e</sub>', 'V<sub>p</sub>'))
+                    subplot_titles=('K<sub>trans</sub>', 'v<sub>e</sub>', 'v<sub>p</sub>'))
 
 
 line_colours = ['#585e9a', '#f36a61']
