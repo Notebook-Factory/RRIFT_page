@@ -44,12 +44,9 @@ from IPython.core.display import display, HTML
 init_notebook_mode(connected=True)
 config={'showLink': False, 'displayModeBar': False}
 
-
-
 # Figure 1
 
-
-* (A) Reference Tissue
+## (A) Reference Tissue
 
 file = loadmat('fig1vars.mat')
 
@@ -1890,7 +1887,7 @@ display(HTML('figures/fig6-1.html'))
 
 * $v_{e}$ 
 
-files = ["fig6pat1.mat", 
+SoSfiles = ["fig6pat1.mat", 
          "fig6pat2.mat", 
          "fig6pat3.mat", 
          "fig6pat4.mat",
