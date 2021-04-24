@@ -82,7 +82,7 @@ sub1.update_layout(title='(A) Reference Tissue',
 
 sub1.add_annotation(text='K<sub>RR</sub><sup>trans</sup> 0.007 [min<sup>-1</sup>]<br> K<sub>ep, RR</sub> 0.50 [min<sup>-1</sup>]',
                   xref="x", yref="y",
-                  x=5, y=0.02, showarrow=False, font = dict(size = 26))
+                  x=5, y=0.03, showarrow=False, font = dict(size = 22))
 
 sub1.update_xaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 sub1.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
@@ -155,7 +155,7 @@ plot(fig, filename = 'figures/fig1-2.html', config = config)
 
 display(HTML('figures/fig1-2.html'))
 
-### (C) Input Function 
+### <notextile>(C) Input Function</notextile> 
 
 file = loadmat('fig1vars.mat')
 
@@ -183,9 +183,9 @@ fig.add_vrect(
     fillcolor="LightGray", opacity=0.5,
     layer="below", line_width=0,
     annotation=dict(text="Input Function Tail",
-                  xref="paper", yref="paper",
-                    x=7.6, y=0.7,
-#                   xanchor="center", yanchor="center", 
+#                   xref="paper", yref="paper",
+                    x=6.5, y=0.7,
+                  xanchor="center", yanchor="top", 
 #                   xshift=-140, yshift=-100,
                   showarrow=False, font=dict(size=20, color='black'))
 )
@@ -2413,8 +2413,10 @@ fig.update_layout(
         active=0,
         x=0.1,
         y=1.2,
-        xanchor="left",
-        yanchor="top",
+        xref="paper",
+        yref="paper",
+#         xanchor="left",
+#         yanchor="bottom",
         direction="right",
         type='buttons',
         buttons=list(
