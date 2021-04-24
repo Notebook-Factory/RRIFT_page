@@ -46,7 +46,7 @@ config={'showLink': False, 'displayModeBar': False}
 
 ## Figure 1
 
-### (A) Reference Tissue
+### Reference Tissue
 
 file = loadmat('fig1vars.mat')
 
@@ -93,7 +93,7 @@ plot(sub1, filename = 'figures/fig1-1.html', config = config)
 
 display(HTML('figures/fig1-1.html'))
 
-### (B) Tissue of Interest
+### Tissue of Interest
 
 file = loadmat('fig1vars.mat')
 
@@ -155,7 +155,7 @@ plot(fig, filename = 'figures/fig1-2.html', config = config)
 
 display(HTML('figures/fig1-2.html'))
 
-### <notextile>(C) Input Function</notextile> 
+### Input Function 
 
 file = loadmat('fig1vars.mat')
 
@@ -285,7 +285,7 @@ plot(fig, filename = 'figures/fig1-3.html', config = config)
 display(HTML('figures/fig1-3.html'))
 
 
-### (D) RRIFT Fit 
+### RRIFT Fit 
 
 file = loadmat('fig1vars.mat')
 
@@ -2413,10 +2413,8 @@ fig.update_layout(
         active=0,
         x=0.1,
         y=1.2,
-        xref="paper",
-        yref="paper",
-#         xanchor="left",
-#         yanchor="bottom",
+        xanchor="left",
+        yanchor="top",
         direction="right",
         type='buttons',
         buttons=list(
