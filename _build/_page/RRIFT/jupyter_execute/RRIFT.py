@@ -4,7 +4,7 @@
 
 ## Introduction 
 
-This is a Jupyter notebook that introduces interactive plots created in plotly from some of figures in the paper [Pharmacokinetic modeling of dynamic contrast‐enhanced MRI using a reference region and input function tail](https://onlinelibrary.wiley.com/doi/abs/10.1002/mrm.27913). 
+This is a Jupyter notebook that introduces interactive plots created in plotly from all of the figures in the paper [Pharmacokinetic modeling of dynamic contrast‐enhanced MRI using a reference region and input function tail](https://onlinelibrary.wiley.com/doi/abs/10.1002/mrm.27913). 
 
 Link to the paper's GitHub repository: https://github.com/MPUmri/RRIFT
 
@@ -20,7 +20,7 @@ Quantitative analysis of dynamic contrast‐enhanced MRI (DCE‐MRI) requires an
 RRIFT was evaluated in simulations with 100 parameter combinations at various temporal resolutions (5‐30 s) and noise levels (σ = 0.01‐0.05 mM). RRIFT was compared against the extended Tofts model (ETM) in 8 studies from patients with glioblastoma multiforme. Two versions of RRIFT were evaluated: one using measured patient‐specific AIF tails, and another assuming a literature‐based AIF tail.
 
 ### Results
-RRIFT estimated the transfer constant $K^{trans}$ and interstitial volume $V_{e}$ with median errors within 20% across all simulations. RRIFT was more accurate and precise than the ETM at temporal resolutions slower than 10 s. The percentage error of $K^{trans}$ had a median and interquartile range of −9 ± 45% with the ETM and −2 ± 17% with RRIFT at a temporal resolution of 30 s under noiseless conditions. RRIFT was in excellent agreement with the ETM in vivo, with concordance correlation coefficients (CCC) of 0.95 for $K^{trans}$, 0.96 for $V_{e}$, and 0.73 for the plasma volume $V_{p}$ using a measured AIF tail. With the literature‐based AIF tail, the CCC was 0.89 for $K^{trans}$, 0.93 for $V_{e}$ and 0.78 for $V_{p}$.
+RRIFT estimated the transfer constant $K^{trans}$ and interstitial volume $v_{e}$ with median errors within 20% across all simulations. RRIFT was more accurate and precise than the ETM at temporal resolutions slower than 10 s. The percentage error of $K^{trans}$ had a median and interquartile range of −9 ± 45% with the ETM and −2 ± 17% with RRIFT at a temporal resolution of 30 s under noiseless conditions. RRIFT was in excellent agreement with the ETM in vivo, with concordance correlation coefficients (CCC) of 0.95 for $K^{trans}$, 0.96 for $v_{e}$, and 0.73 for the plasma volume $v_{p}$ using a measured AIF tail. With the literature‐based AIF tail, the CCC was 0.89 for $K^{trans}$, 0.93 for $v_{e}$ and 0.78 for $v_{p}$.
 
 ### Conclusions 
 Quantitative DCE‐MRI analysis using the input function tail and a reference tissue yields absolute kinetic parameters with the RRIFT method. This approach was viable in simulation and in vivo for temporal resolutions as low as 30 s.
@@ -80,7 +80,7 @@ sub1.update_layout(title='(A) Reference Tissue',
                    
                  )
 
-sub1.add_annotation(text='K<sub>RR</sub><sup>trans</sup> 0.007 [min<sup>-1</sup>] K<sub>ep, RR</sub> 0.50 [min<sup>-1</sup>]',
+sub1.add_annotation(text='K<sub>RR</sub><sup>trans</sup> 0.007 [min<sup>-1</sup>]<br> K<sub>ep, RR</sub> 0.50 [min<sup>-1</sup>]',
                   xref="x", yref="y",
                   x=5, y=0.02, showarrow=False, font = dict(size = 26))
 
