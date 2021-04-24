@@ -2,7 +2,7 @@
 
 <img src="images/NotebookFactory.png">
 
-# Introduction 
+## Introduction 
 
 This is a Jupyter notebook that introduces interactive plots created in plotly from some of figures in the paper [Pharmacokinetic modeling of dynamic contrast‐enhanced MRI using a reference region and input function tail](https://onlinelibrary.wiley.com/doi/abs/10.1002/mrm.27913). 
 
@@ -11,18 +11,18 @@ Link to the paper's GitHub repository: https://github.com/MPUmri/RRIFT
 GitHub link to this notebook: https://github.com/Notebook-Factory/RRIFT_notebooks
 
 
-# Abstract 
+## Abstract 
 
-##  Purpose
+###  Purpose
 Quantitative analysis of dynamic contrast‐enhanced MRI (DCE‐MRI) requires an arterial input function (AIF) which is difficult to measure. We propose the reference region and input function tail (RRIFT) approach which uses a reference tissue and the washout portion of the AIF.
 
-## Methods
+### Methods
 RRIFT was evaluated in simulations with 100 parameter combinations at various temporal resolutions (5‐30 s) and noise levels (σ = 0.01‐0.05 mM). RRIFT was compared against the extended Tofts model (ETM) in 8 studies from patients with glioblastoma multiforme. Two versions of RRIFT were evaluated: one using measured patient‐specific AIF tails, and another assuming a literature‐based AIF tail.
 
-## Results
+### Results
 RRIFT estimated the transfer constant $K^{trans}$ and interstitial volume $V_{e}$ with median errors within 20% across all simulations. RRIFT was more accurate and precise than the ETM at temporal resolutions slower than 10 s. The percentage error of $K^{trans}$ had a median and interquartile range of −9 ± 45% with the ETM and −2 ± 17% with RRIFT at a temporal resolution of 30 s under noiseless conditions. RRIFT was in excellent agreement with the ETM in vivo, with concordance correlation coefficients (CCC) of 0.95 for $K^{trans}$, 0.96 for $V_{e}$, and 0.73 for the plasma volume $V_{p}$ using a measured AIF tail. With the literature‐based AIF tail, the CCC was 0.89 for $K^{trans}$, 0.93 for $V_{e}$ and 0.78 for $V_{p}$.
 
-## Conclusions 
+### Conclusions 
 Quantitative DCE‐MRI analysis using the input function tail and a reference tissue yields absolute kinetic parameters with the RRIFT method. This approach was viable in simulation and in vivo for temporal resolutions as low as 30 s.
 
 import plotly.express as px
@@ -44,9 +44,9 @@ from IPython.core.display import display, HTML
 init_notebook_mode(connected=True)
 config={'showLink': False, 'displayModeBar': False}
 
-# Figure 1
+## Figure 1
 
-## (A) Reference Tissue
+### (A) Reference Tissue
 
 file = loadmat('fig1vars.mat')
 
@@ -93,7 +93,7 @@ plot(sub1, filename = 'figures/fig1-1.html', config = config)
 
 display(HTML('figures/fig1-1.html'))
 
-* (B) Tissue of Interest
+### (B) Tissue of Interest
 
 file = loadmat('fig1vars.mat')
 
@@ -155,7 +155,7 @@ plot(fig, filename = 'figures/fig1-2.html', config = config)
 
 display(HTML('figures/fig1-2.html'))
 
-* (C) Input Function 
+### (C) Input Function 
 
 file = loadmat('fig1vars.mat')
 
@@ -285,7 +285,7 @@ plot(fig, filename = 'figures/fig1-3.html', config = config)
 display(HTML('figures/fig1-3.html'))
 
 
-* (D) RRIFT Fit 
+### (D) RRIFT Fit 
 
 file = loadmat('fig1vars.mat')
 
@@ -333,7 +333,7 @@ plot(fig, filename = 'figures/fig1-4.html', config = config)
 
 display(HTML('figures/fig1-4.html'))
 
-# Figure 2
+## Figure 2
 
 file = loadmat('fig2andfig3vars.mat')
 
@@ -469,7 +469,7 @@ plot(fig, filename = 'figures/fig2.html', config = config)
 
 display(HTML('figures/fig2.html'))
 
-## Subfigures with sliders 
+### Subfigures with sliders 
 
 * $K^{trans}$: 
 
@@ -724,7 +724,7 @@ plot(fig, filename = 'figures/fig2-3.html', config = config)
 
 display(HTML('figures/fig2-3.html'))
 
-# Figure 3 
+## Figure 3 
 
 file = loadmat('fig2andfig3vars.mat')
 
@@ -857,7 +857,7 @@ plot(fig, filename = 'figures/fig3.html', config = config)
 
 display(HTML('figures/fig3.html'))
 
-## Subfigures with sliders 
+### Subfigures with sliders 
 
 * $\widehat{k_{ep,RR}}$ 
 
@@ -1123,7 +1123,7 @@ fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 plot(fig, filename = 'figures/fig3-3.html', config = config)
 display(HTML('figures/fig3-3.html'))
 
-# Figure 4 
+## Figure 4 
 
 file = loadmat('fig4vars.mat')
 
@@ -1555,7 +1555,7 @@ fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 plot(fig, filename = 'figures/fig4-3.html', config = config)
 display(HTML('figures/fig4-3.html'))
 
-# Figure 5
+## Figure 5
 
 file = loadmat('fig5vars.mat')
 
@@ -1693,7 +1693,7 @@ fig.update_layout(
 plot(fig, filename = 'figures/fig5.html', config = config)
 display(HTML('figures/fig5.html'))
 
-# Figure 6 
+## Figure 6 
 
 * $K^{trans}$ 
 
@@ -2266,7 +2266,7 @@ fig.update_xaxes(showticklabels = False)
 plot(fig, filename = 'figures/fig6-3.html', config = config)
 display(HTML('figures/fig6-3.html'))
 
-# Figure 7 
+## Figure 7 
 
 fig = make_subplots(rows=1, cols=3)
 
@@ -2531,7 +2531,7 @@ fig.update_yaxes(ticks="outside", showline=True, linewidth=2, linecolor='black')
 plot(fig, filename = 'figures/fig7.html', config = config)
 display(HTML('figures/fig7.html'))
 
-# Figure 8
+## Figure 8
 
 fig = make_subplots(rows=1, cols=3, 
                     subplot_titles=('k<sub>ep,RR</sub> [min<sup>-1</sup>]', 'K<sub>RR</sub><sup>trans</sup>[min<sup>-1</sup>]', 'v<sub>e,RR</sub>'))
@@ -2679,7 +2679,7 @@ fig.update_yaxes(title_text='RRIFT',
 plot(fig, filename = 'figures/fig8.html', config = config)
 display(HTML('figures/fig8.html'))
 
-## Figure 8 - choose which subplot to view 
+### Figure 8 - choose which subplot to view 
 
 
 fig = go.Figure()
@@ -2802,7 +2802,7 @@ fig.update_layout(plot_bgcolor="#fff", sliders=sliders, title={'text': next(titl
 plot(fig, filename = 'figures/fig8-1.html', config = config)
 display(HTML('figures/fig8-1.html'))
 
-# Figure 9
+## Figure 9
 
 * $K^{trans}[min^{-1}]$
 
@@ -3365,7 +3365,7 @@ fig.update_xaxes(showticklabels = False)
 plot(fig, filename = 'figures/fig9-3.html', config = config)
 display(HTML('figures/fig9-3.html'))
 
-# Figure 10
+## Figure 10
 
 fig = make_subplots(rows=1, cols=3, 
                     subplot_titles=('K<sub>trans</sub>', 'v<sub>e</sub>', 'v<sub>p</sub>'))
